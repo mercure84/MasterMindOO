@@ -18,16 +18,18 @@ import Jeu.ModeJeu;
  *
  */
 public class Combinaison {
-	
-	// différentes variables stockant les combinaison nécessaire aux jeux et aux différents modes
+
+	// différentes variables stockant les combinaison nécessaire aux jeux et aux
+	// différents modes
 	public List<Integer> combinaisonCSD = new ArrayList();
 	public List<Integer> combinaisonCS = new ArrayList();
 	public List<Integer> combinaisonCSMin = new ArrayList();
 	public List<Integer> combinaisonCSMax = new ArrayList();
 
-	public List<Character> combinaisonMM = new ArrayList();;
+	public List<Character> combinaisonMM = new ArrayList();
 
-	public List<List> ensembleCombinaisonMM = new ArrayList();;
+	public List<List> ensembleCombinaisonMM = new ArrayList();
+	public List<Character> combinaisonMMD = new ArrayList();
 
 	// constructeur d'une combinaison aléatoire pour CS avec en paramètre le type de
 	// jeu, le nb de Cases
@@ -40,9 +42,9 @@ public class Combinaison {
 				combinaisonInventee.add(k);
 
 			}
-			
+
 			this.combinaisonCSD = combinaisonInventee;
-			
+
 			for (int i = 0; i < nbCases; i++) {
 				this.combinaisonCS.add(5);
 				this.combinaisonCSMax.add(10);
@@ -52,7 +54,6 @@ public class Combinaison {
 		}
 
 	}
-
 
 	// construction d'une combinaison de départ en mode challenger MM
 	public Combinaison(ChoixJeu typeJeu, int nbCases, List<Character> ensembleCouleurs) {
@@ -69,9 +70,86 @@ public class Combinaison {
 				combinaisonInventee.add(couleur);
 
 			}
-			this.combinaisonMM = combinaisonInventee;
+			this.combinaisonMMD = combinaisonInventee;
 		}
 
+	}
+
+	// génération d'un ensemble de combinaison pour les modes défenseurs / duels
+
+	public Combinaison(ChoixJeu typeJeu, int nbCases, List<Character> ensembleCouleurs, ModeJeu modeJeu) {
+		List<List> listeCombinaisons = new ArrayList();
+		if (typeJeu == ChoixJeu.MASTERMIND) {
+			
+			int n = ensembleCouleurs.size();
+			int nbCombinaisonsPossibles = (int) Math.pow(n, nbCases);
+			System.out.println("nb combinaisons possibles pour l'IA = " + nbCombinaisonsPossibles);
+			// création de l'ensemble des combinaisons pour une combinaison de 4 à 10 cases
+
+			for (int i = 0; i < n; i++) {
+				List<Character> uneCombinaison = new ArrayList();
+				for (int j = 0; j < n; j++) {
+					for (int k = 0; k < n; k++) {
+						for (int l = 0; l < n; l++) {
+							if (nbCases <= 4) {
+								break;
+							}
+
+							for (int m = 0; m < n; m++) {
+								if (nbCases <= 5) {
+									break;
+								}
+
+								for (int o = 0; o < n; o++) {
+									if (nbCases <= 6) {
+										break;
+									}
+
+									for (int p = 0; p < n; p++) {
+										if (nbCases <= 7) {
+											break;
+										}
+
+										for (int q = 0; q < n; q++) {
+											if (nbCases <= 8) {
+												break;
+											}
+
+											for (int r = 0; r < n; r++) {
+												if (nbCases <= 9) {
+													break;
+												}
+
+												for (int s = 0; s < n; s++) {
+
+													uneCombinaison.add(ensembleCouleurs.get(s));
+												}
+												uneCombinaison.add(ensembleCouleurs.get(r));
+											}
+											uneCombinaison.add(ensembleCouleurs.get(q));
+										}
+										uneCombinaison.add(ensembleCouleurs.get(p));
+									}
+									uneCombinaison.add(ensembleCouleurs.get(o));
+								}
+								uneCombinaison.add(ensembleCouleurs.get(m));
+							}
+							uneCombinaison.add(ensembleCouleurs.get(l));
+						}
+						uneCombinaison.add(ensembleCouleurs.get(k));
+					}
+					uneCombinaison.add(ensembleCouleurs.get(j));
+				}
+				uneCombinaison.add(ensembleCouleurs.get(i));
+
+				listeCombinaisons.add(uneCombinaison);
+				
+			}
+
+			this.ensembleCombinaisonMM = listeCombinaisons;
+		}
+
+		System.out.println("L'ordi vient de générer " + listeCombinaisons.size() + " combinaisons !!!");
 	}
 
 }
