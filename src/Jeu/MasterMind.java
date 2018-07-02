@@ -13,10 +13,11 @@ public class MasterMind extends Game {
 		this.nomGame = "MasterMind";
 		this.nbCouleurs = paramJeu.getNbCouleursMM();
 		this.nbCases = paramJeu.getNbCasesMM();
-		System.out.println("MM");
+		System.out.println("MM créé");
 		
 		
 	}
+	
 	
 	
 

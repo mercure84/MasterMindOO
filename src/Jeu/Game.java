@@ -7,7 +7,7 @@ import Tools.Parametres;
  * @author julie
  *
  */
-public class Game {
+public class Game implements Challenger, Defenseur, Duel {
 
 	String nomGame = "";
 	boolean IAGagne;
@@ -28,6 +28,27 @@ public class Game {
 		System.out.println("Un jeu est créé !");
 
 			
+	}
+
+
+	@Override
+	public void jouerDefenseur() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void joueurIndique() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void jouerChallenger() {
+		// TODO Auto-generated method stub
+		
 	}
 
 

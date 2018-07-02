@@ -125,14 +125,9 @@ public class Partie<jeuFini> {
 	
 	
 	public void start() {
-		boolean reJouer = false;
-	
 		System.out.println("Nous allons jouer au " + this.typeJeu.nomGame + " en mode " + this.modeJeu + " !");
 		
-		
-		
-		
-		
+
 		
 	
 	

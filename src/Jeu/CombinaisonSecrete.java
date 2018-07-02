@@ -7,7 +7,11 @@ public class CombinaisonSecrete extends Game {
 		super();
 		this.nomGame = "Combinaison Secrète";
 		this.nbCases = paramJeu.getNbCasesCS();
-		System.out.println("CS");
+		System.out.println("CS créé");
 	}
+	
+	
+	
+	
 
 }
