@@ -18,7 +18,8 @@ import Jeu.ModeJeu;
  *
  */
 public class Combinaison {
-
+	
+	public List<Integer> combinaisonCSD = new ArrayList();
 	public List<Integer> combinaisonCS = new ArrayList();
 	public List<Integer> combinaisonCSMin = new ArrayList();
 	public List<Integer> combinaisonCSMax = new ArrayList();
@@ -28,7 +29,7 @@ public class Combinaison {
 	public List<List> ensembleCombinaisonMM = new ArrayList();;
 
 	// constructeur d'une combinaison aléatoire pour CS avec en paramètre le type de
-	// jeu, le nb de Cases et l'ensemble des couleurs dispo
+	// jeu, le nb de Cases
 	public Combinaison(ChoixJeu typeJeu, int nbCases) {
 
 		if (typeJeu == ChoixJeu.COMBINAISON_SECRETE) {
@@ -38,26 +39,19 @@ public class Combinaison {
 				combinaisonInventee.add(k);
 
 			}
-			this.combinaisonCS = combinaisonInventee;
-
-		}
-
-	}
-
-	// construction d'une combinaison de départ en mode défenseur pour l'IA -- création des bornes Maxi et mini via 2 autres combinaisons
-	public Combinaison(ChoixJeu typeJeu, int nbCases, ModeJeu modeJeu) {
-
-		if (modeJeu == ModeJeu.DEFENSEUR) {
-
+			
+			this.combinaisonCSD = combinaisonInventee;
+			
 			for (int i = 0; i < nbCases; i++) {
 				this.combinaisonCS.add(5);
 				this.combinaisonCSMax.add(10);
 				this.combinaisonCSMin.add(0);
 
 			}
-
 		}
+
 	}
+
 
 	// construction d'une combinaison de départ en mode challenger MM
 	public Combinaison(ChoixJeu typeJeu, int nbCases, List<Character> ensembleCouleurs) {

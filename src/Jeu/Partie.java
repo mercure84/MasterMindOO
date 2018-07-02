@@ -158,7 +158,7 @@ public class Partie{
 			this.nouveauJeu.jouerDefenseur(humain, IA);
 			break;
 		case DUEL :
-			this.nouveauJeu.jouerDefenseur();
+			this.nouveauJeu.jouerDuel(humain, IA);
 			break;
 				
 		}

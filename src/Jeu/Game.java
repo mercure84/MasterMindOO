@@ -40,6 +40,13 @@ public class Game implements Jouable {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	@Override
+	public void jouerDuel(JoueurHumain joueurH, JoueurIA joueurIA) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 
 	ChoixJeu typeJeu;
@@ -76,27 +83,27 @@ public class Game implements Jouable {
 	public boolean endGame(boolean gagne, int nbTours, List proposition) {
 		
 		
-		if ((!gagne) && (nbEssais <= this.nbEssaisMax)){
+		if ((!gagne) && (nbEssais < this.nbEssaisMax)){
 			
 			return false;
 			
 		}
 
-		if (nbTours >= this.nbEssaisMax) {
-			System.out.println("Perdu ! Il n'y a plus d'essais disponibles");
-			return false;
-		}
+
 		
 		if (gagne) {
 			System.out.println("C'est gagné ! Le nombre à trouver était bien de " + proposition + " vous y êtes arrivé en " + nbEssais + " essai(s) !");
+			
+			return true;
 
 		}
 		
+		if (nbTours >= (this.nbEssaisMax-1)){
+			System.out.println("Perdu ! Il n'y a plus d'essais disponibles");
+			return true;
+		}
 		
-		
-		
-		
-		return gagne;
+			return gagne ;
 			}
 	
 

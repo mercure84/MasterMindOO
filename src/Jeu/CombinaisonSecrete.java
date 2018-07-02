@@ -1,5 +1,8 @@
 package Jeu;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import Joueur.JoueurHumain;
 import Joueur.JoueurIA;
 import Tools.Combinaison;
@@ -23,12 +26,12 @@ public class CombinaisonSecrete extends Game {
 	 */
 	public void jouerChallenger(JoueurHumain joueurH, JoueurIA joueurIA) {
 
-		// l'IA génère une combinaison !
+		// l'IA génère une combinaison à trouver par le joueur
 		joueurIA.combinaisonJoueur = new Combinaison(this.typeJeu, this.nbCases);
 
 		if (modeDev) {
 			System.out.println(
-					"le mode dev est activé, la combinaison de l'IA est " + joueurIA.combinaisonJoueur.combinaisonCS);
+					"le mode dev est activé, la combinaison de l'IA est " + joueurIA.combinaisonJoueur.combinaisonCSD);
 		}
 
 		System.out.println("Quelle est votre proposition ?");
@@ -36,9 +39,9 @@ public class CombinaisonSecrete extends Game {
 		do {
 			nbEssais++;
 			String propositionJoueur = sc.nextLine();
-			gagne = joueurIA.comparer(propositionJoueur, joueurIA.combinaisonJoueur.combinaisonCS);
+			gagne = joueurIA.comparer(propositionJoueur, joueurIA.combinaisonJoueur.combinaisonCSD);
 
-		} while (!this.endGame(gagne, nbEssais, joueurIA.combinaisonJoueur.combinaisonCS));
+		} while (!this.endGame(gagne, nbEssais, joueurIA.combinaisonJoueur.combinaisonCSD));
 
 	}
 
@@ -52,8 +55,8 @@ public class CombinaisonSecrete extends Game {
 		String propositionIA = "";
 
 		// création de la comibinaison de départ : on demande une combinaison aléatoire
-		// et la vide !
-		joueurIA.combinaisonJoueur = new Combinaison(this.typeJeu, this.nbCases, ModeJeu.DEFENSEUR);
+		
+		joueurIA.combinaisonJoueur = new Combinaison(this.typeJeu, this.nbCases);
 
 		gagne = false;
 		do {
@@ -80,10 +83,62 @@ public class CombinaisonSecrete extends Game {
 
 public void jouerDuel(JoueurHumain joueurH, JoueurIA joueurIA) {
 	
+	boolean gagneIA = false;
+	boolean gagneJ = false;
+	List <Integer> winProposition = new ArrayList();
+	// l'IA génère une combinaison à trouver par le joueur
+	joueurIA.combinaisonJoueur = new Combinaison(this.typeJeu, this.nbCases);
+	
+	System.out.println("L'IA a déterminé sa combinaison personnelle, à vous de mémoriser la vôtre !");
+	if (modeDev) {
+		System.out.println(
+				"le mode dev est activé, la combinaison de l'IA est " + joueurIA.combinaisonJoueur.combinaisonCSD);
+	}
+
+	do {
+		
+		
+		
+		// joueur humain joue
+		nbEssais++;
+		System.out.println("Quelle est votre proposition ?");
+		String propositionJoueur = sc.nextLine();
+		gagneJ = joueurIA.comparer(propositionJoueur, joueurIA.combinaisonJoueur.combinaisonCSD);
+		
+		// joueur IA joue
+		String propositionIA = "";
+		nbEssais++;
+		for (int i = 0; i < joueurIA.combinaisonJoueur.combinaisonCS.size(); i++) {
+
+			propositionIA += joueurIA.combinaisonJoueur.combinaisonCS.get(i) + " ";
+
+		}
+		System.out.println("L'IA propose : " + propositionIA);
+		
+
+		String indice = joueurH.joueurIndiqueCS(joueurIA.combinaisonJoueur.combinaisonCS);
+		gagneIA = joueurIA.ajusterCombinaisonCS(indice, joueurIA.combinaisonJoueur.combinaisonCS);
+		
+		if (gagneIA || gagneJ) {
+			if (gagneIA) {System.out.println("L'IA a gagné !");
+			winProposition = joueurIA.combinaisonJoueur.combinaisonCS;
+			
+			} 
+			if (gagneJ) {System.out.println("Vous avez gagné !");
+			winProposition = joueurIA.combinaisonJoueur.combinaisonCSD;}
+			gagne = true;
+		}
+		
+
+	} while (!this.endGame(gagne, nbEssais, winProposition));
 	
 	
 	
 	
 	
+
+}
 	
-}}
+	
+	
+}

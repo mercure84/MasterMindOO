@@ -19,7 +19,7 @@ public class Joueur {
 		// si la longueur de la combinaison est différent on renvoie immédiatement false
 		if (propositionJ.length() != code.size()) {
 
-			System.out.println("Il fallait proposer une combinaison à " + code.size() + " ! Vous perdez un essai !");
+			System.out.println("Il fallait proposer une combinaison à " + code.size() + " chiffres ! Vous perdez un essai !");
 			return false;
 		}
 

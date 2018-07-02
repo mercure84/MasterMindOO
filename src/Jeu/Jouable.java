@@ -15,4 +15,6 @@ public interface Jouable {
 
 	public void jouerDefenseur(JoueurHumain joueurH, JoueurIA joueurIA);
 	
+	public void jouerDuel(JoueurHumain joueurH, JoueurIA joueurIA);
+	
 }
