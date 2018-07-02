@@ -4,6 +4,7 @@ import java.util.Scanner;
 import Joueur.JoueurHumain;
 import Joueur.JoueurIA;
 import Tools.Combinaison;
+import Tools.Parametres;
 
 /**
  * classe qui permet d'instancier une partie avec la création d'un jeu (type de jeu + mode) et des joueurs (1 IA et 1 Humain)
@@ -12,14 +13,17 @@ import Tools.Combinaison;
  *
  */
 
-public class Partie<jeuFini> {
+public class Partie{
 
-	Game typeJeu = null;
-	String modeJeu = null; // 1 = challenger, 2 = défenseur, 3 = duel
+	ChoixJeu typeJeu;
+	ModeJeu modeJeu; // utilisation d'une ENUM
 	JoueurHumain humain = null ;
 	JoueurIA IA = null ;
 	boolean jeuFini = false;
 	Scanner sc = new Scanner(System.in);
+	Game nouveauJeu;
+	
+
 
 	/**
 	 * initiatilisation du jeu : le constructeur affiche un menu qui permet de
@@ -27,6 +31,10 @@ public class Partie<jeuFini> {
 	 * puis quel mode il souhaite lancer (Challenger, Défenseur, Duel ==> modeJeu)
 	 */
 	public Partie() {
+		
+		
+
+		
 
 		// 1er menu qui demande le type de Jeu souhaité
 
@@ -37,20 +45,23 @@ public class Partie<jeuFini> {
 		System.out.println("3 - MasterMind Ultra : testons les algorithmes !");
 		boolean choix = false;
 
-		
+		// une fois le choix réalisé, on instance le jeu
 		while (!choix) {
 			int choixJeu = sc.nextInt();
 			switch (choixJeu) {
 			case 1:
-				this.typeJeu = new CombinaisonSecrete();
+				this.typeJeu = ChoixJeu.COMBINAISON_SECRETE;
+				this.nouveauJeu = new CombinaisonSecrete();
 				choix = true;
 				break;
 			case 2:
-				this.typeJeu = new MasterMind();
+				this.typeJeu = ChoixJeu.MASTERMIND;
+				this.nouveauJeu = new MasterMind();
 				choix = true;
 				break;
 			case 3:
-				this.typeJeu = new MasterMindUltra();
+				this.typeJeu = ChoixJeu.MASTERMINDULTRA;
+				this.nouveauJeu = new MasterMindUltra();
 				choix = true;
 				break;
 
@@ -76,17 +87,17 @@ public class Partie<jeuFini> {
 
 				switch (choixMode) {
 				case 1:
-					this.modeJeu = "challenger";
+					this.modeJeu = ModeJeu.CHALLENGER;
 					choix = true;
 					break;
 
 				case 2:
-					this.modeJeu = "défenseur";
+					this.modeJeu = ModeJeu.DEFENSEUR;
 					choix = true;
 					break;
 
 				case 3:
-					this.modeJeu = "duel";
+					this.modeJeu = ModeJeu.DUEL;
 					choix = true;
 					break;
 
@@ -103,14 +114,14 @@ public class Partie<jeuFini> {
 				
 				
 				// création de la combinaison pour l'IA si le mode duel ou challenger ont été choisis :
-				if (this.modeJeu != "defenseur") {
-					if (this.typeJeu.nomGame == "Combinaison Secrète") {
-					this.IA.combinaisonJoueur = new Combinaison (this.typeJeu.nomGame, this.typeJeu.paramJeu.getNbCasesCS(), null);
+				if (this.modeJeu != ModeJeu.DEFENSEUR) {
+					if (this.typeJeu == ChoixJeu.COMBINAISON_SECRETE) {
+					this.IA.combinaisonJoueur = new Combinaison(ChoixJeu.COMBINAISON_SECRETE, this.nouveauJeu.paramJeu.getNbCasesCS(), null );
 				}
 					
-					if (this.typeJeu.nomGame == "MasterMind") {
+					else {
 						
-						this.IA.combinaisonJoueur = new Combinaison (this.typeJeu.nomGame, this.typeJeu.paramJeu.getNbCasesMM(), this.typeJeu.paramJeu.ensembleCouleurs);
+						this.IA.combinaisonJoueur = new Combinaison (ChoixJeu.COMBINAISON_SECRETE, this.nouveauJeu.paramJeu.getNbCasesMM(), this.nouveauJeu.paramJeu.ensembleCouleurs);
 						
 					}
 					
@@ -125,7 +136,18 @@ public class Partie<jeuFini> {
 	
 	
 	public void start() {
-		System.out.println("Nous allons jouer au " + this.typeJeu.nomGame + " en mode " + this.modeJeu + " !");
+		System.out.println("Nous allons jouer au " + this.typeJeu + " en mode " + this.modeJeu + " !");
+		
+		switch(this.modeJeu) {
+	
+		
+		
+		
+		}
+		
+		
+		
+		
 		
 
 		

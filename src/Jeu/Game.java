@@ -12,24 +12,27 @@ public class Game implements Challenger, Defenseur, Duel {
 	String nomGame = "";
 	boolean IAGagne;
 	boolean humainGagne;
-	int nbTours = 0;
-	int nbEssaisMax = 10;
 	Parametres paramJeu ;
-	boolean modeDev;
+	int nbEssaisMax = 10;
+	boolean modeDev;	
 	
 
 	//constructeur par défaut
 	public Game() {
+		// chargement des paramètres du fichier config.properties
 		
-				
+		
 		this.paramJeu = new Parametres();
 		this.nbEssaisMax = paramJeu.getNbEssais();
 		this.modeDev = paramJeu.isModeDev();
+
 		System.out.println("Un jeu est créé !");
 
 			
 	}
-
+	
+	
+	
 
 	@Override
 	public void jouerDefenseur() {
@@ -47,7 +50,10 @@ public class Game implements Challenger, Defenseur, Duel {
 
 	@Override
 	public void jouerChallenger() {
-		// TODO Auto-generated method stub
+
+
+		
+		
 		
 	}
 

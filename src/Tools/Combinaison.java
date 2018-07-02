@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import Jeu.ChoixJeu;
+
 /**
  * classe qui permet de générer un objet de type combinaison :
  * 
@@ -27,9 +29,9 @@ public class Combinaison {
 	}
 	
 	// constructeur d'une combinaison aléatoire pour CS et MM avec en paramètrele le type de jeu, le nb de Cases et l'ensemble des couleurs dispo
-	public Combinaison(String typeJeu, int nbCases, List<Character> ensembleCouleurs) {
+	public Combinaison(ChoixJeu typeJeu, int nbCases, List<Character> ensembleCouleurs) {
 		
-		if (typeJeu == "Combinaison Secrète") {
+		if (typeJeu == ChoixJeu.COMBINAISON_SECRETE) {
 				List<Integer> combinaisonInventee = new ArrayList();
 				for (int i = 0; i < nbCases; i++) {
 					int k = (int) (Math.random() * 10);
@@ -40,7 +42,7 @@ public class Combinaison {
 
 			}
 		
-		if (typeJeu == "MasterMind") {
+		if (typeJeu == ChoixJeu.MASTERMIND) {
 			
 			List<Character> combinaisonInventee = new ArrayList();
 			
