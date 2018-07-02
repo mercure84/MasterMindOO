@@ -19,6 +19,7 @@ import Jeu.ModeJeu;
  */
 public class Combinaison {
 	
+	// différentes variables stockant les combinaison nécessaire aux jeux et aux différents modes
 	public List<Integer> combinaisonCSD = new ArrayList();
 	public List<Integer> combinaisonCS = new ArrayList();
 	public List<Integer> combinaisonCSMin = new ArrayList();

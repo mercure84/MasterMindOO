@@ -6,7 +6,7 @@ import java.util.List;
 import Joueur.JoueurHumain;
 import Joueur.JoueurIA;
 import Tools.Combinaison;
-import Tools.Comparaison;
+
 
 public class CombinaisonSecrete extends Game {
 
@@ -54,7 +54,7 @@ public class CombinaisonSecrete extends Game {
 				("Nous vous invitons à bien mémoriser votre combinaison, L'IA va tenter de la deviner avec un algorithme très puissant !"));
 		String propositionIA = "";
 
-		// création de la comibinaison de départ : on demande une combinaison aléatoire
+		// création de la combinaison de départ : on demande une combinaison aléatoire
 		
 		joueurIA.combinaisonJoueur = new Combinaison(this.typeJeu, this.nbCases);
 
