@@ -1,9 +1,17 @@
 import java.util.Scanner;
 
+/**
+ * classe qui permet d'instancier une partie avec la création d'un jeu (type de jeu + mode) et des joueurs (1 IA et 1 Humain)
+ * @author julie
+ *
+ */
+
 public class Partie {
 
 	Game typeJeu = null;
 	String modeJeu = null; // 1 = challenger, 2 = défenseur, 3 = duel
+	JoueurHumain humain = null ;
+	JoueurIA IA = null ;
 
 	/**
 	 * initiatilisation du jeu : le constructeur affiche un menu qui permet de
@@ -78,6 +86,33 @@ public class Partie {
 					System.out.println("ce choix n'est pas dans la liste !");
 
 				}
+				
+				
+				// création des joueurs : 1 Humain et 1 IA
+				
+				this.humain = new JoueurHumain();
+				this.IA = new JoueurIA(); 
+				
+				
+				// création de la combinaison pour l'IA si le mode duel ou challenger ont été choisis :
+				if (this.modeJeu != "defenseur") {
+					if (this.typeJeu.nomGame == "Combinaison Secrète")
+					this.IA.combinaisonJoueur = new Combinaison (this.typeJeu.nomGame, this.typeJeu.paramJeu.getNbCasesCS(), null);
+					
+					
+					if (this.typeJeu.nomGame == "MasterMind") {
+						
+						this.IA.combinaisonJoueur = new Combinaison (this.typeJeu.nomGame, this.typeJeu.paramJeu.getNbCasesMM(), this.typeJeu.paramJeu.ensembleCouleurs);
+						
+					}
+					
+					
+					
+				}
+				
+				
+		
+				
 			}
 
 		}
@@ -86,7 +121,11 @@ public class Partie {
 	
 	
 	public void start() {
-		// TODO Auto-generated method stub
+		System.out.println("Nous allons jouer au " + this.typeJeu.nomGame + " en mode " + this.modeJeu + " !");
+		
+		
+		
+		
 		
 	}
 	}

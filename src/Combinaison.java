@@ -18,6 +18,14 @@ public class Combinaison {
 	List<Character> combinaisonMM;
 	List<List> ensembleCombinaisonMM;
 	
+	
+	// constructeur par défaut
+	public Combinaison() {
+		
+			
+	}
+	
+	// constructeur d'une combinaison aléatoire pour CS et MM avec en paramètrele le type de jeu, le nb de Cases et l'ensemble des couleurs dispo
 	public Combinaison(String typeJeu, int nbCases, List<Character> ensembleCouleurs) {
 		
 		if (typeJeu == "Combinaison Secrète") {
@@ -27,7 +35,7 @@ public class Combinaison {
 					combinaisonInventee.add(k);
 
 				}
-				combinaisonCS = combinaisonInventee;
+				this.combinaisonCS = combinaisonInventee;
 
 			}
 		

@@ -15,10 +15,7 @@ public class Game {
 	Parametres paramJeu ;
 	boolean modeDev;
 	
-	Combinaison combiATrouver = null;
-	
-	
-	
+
 	//constructeur par défaut
 	public Game() {
 		

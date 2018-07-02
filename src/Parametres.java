@@ -2,6 +2,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
@@ -20,6 +22,7 @@ public class Parametres {
 	int nbCasesCS = 5;
 	int nbCouleursMM = 6;
 	int nbCasesMM = 4;
+	List<Character> ensembleCouleurs;
 	
 	
 /**
@@ -39,6 +42,7 @@ public class Parametres {
 			this.nbEssais = Integer.parseInt(properties.getProperty("nbEssais"));
 			this.nbCouleursMM = Integer.parseInt(properties.getProperty("nbCouleurs"));
 			this.nbCasesMM = Integer.parseInt(properties.getProperty("nbCasesMM"));
+			this.ensembleCouleurs = definirEnsembleCouleurs(this.nbCouleursMM);
 			
 			logger.info("les paramètres ont été chargés depuis config.properties");		
 		} catch (FileNotFoundException e) {
@@ -47,9 +51,52 @@ public class Parametres {
 			e.printStackTrace();
 		}
 		
+		
+		
 					
 		}
 
+	
+	List<Character> definirEnsembleCouleurs(int n) {
+
+		// création du set de couleurs :
+		List<Character> ensembleCouleurs = new ArrayList();
+		ensembleCouleurs.add('J'); // jaune
+		ensembleCouleurs.add('B'); // bleu
+		ensembleCouleurs.add('R'); // rouge
+		ensembleCouleurs.add('V'); // vert
+		ensembleCouleurs.add('I'); // Ivoire
+		ensembleCouleurs.add('N'); // Noir
+		ensembleCouleurs.add('M'); // Mauve
+		ensembleCouleurs.add('K'); // Kaki
+		ensembleCouleurs.add('A'); // Argent
+		ensembleCouleurs.add('O'); // Or
+
+		switch (n) {
+		case 4:
+			ensembleCouleurs.remove(Character.valueOf('I'));
+		case 5:
+			ensembleCouleurs.remove(Character.valueOf('N'));
+		case 6:
+			ensembleCouleurs.remove(Character.valueOf('M'));
+		case 7:
+			ensembleCouleurs.remove(Character.valueOf('K'));
+		case 8:
+			ensembleCouleurs.remove(Character.valueOf('A'));
+		case 9:
+			ensembleCouleurs.remove(Character.valueOf('O'));
+			break;
+		default:
+			break;
+
+		}
+
+		return ensembleCouleurs;
+
+	}	
+	
+	
+	
 // getters que l'on peut appeler pour récupérer les données dans les jeux
 
 public boolean isModeDev() {
