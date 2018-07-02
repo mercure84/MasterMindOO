@@ -1,3 +1,5 @@
+package Jeu;
+import Tools.Parametres;
 
 /**
  *classe mère de nos différents jeux 

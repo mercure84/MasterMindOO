@@ -1,4 +1,4 @@
-
+package Jeu;
 public class CombinaisonSecrete extends Game {
 
 	int nbCases;

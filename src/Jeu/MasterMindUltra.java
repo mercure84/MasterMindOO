@@ -1,3 +1,4 @@
+package Jeu;
 
 public class MasterMindUltra extends MasterMind {
 	

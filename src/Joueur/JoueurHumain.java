@@ -1,7 +1,12 @@
+package Joueur;
 import java.util.Scanner;
+
+import Tools.Combinaison;
 
 public class JoueurHumain extends Joueur {
 
+	Combinaison combinaisonJoueur = null ;
+	
 	public JoueurHumain() {
 		
 		super();

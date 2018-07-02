@@ -1,3 +1,4 @@
+package Tools;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,7 +23,7 @@ public class Parametres {
 	int nbCasesCS = 5;
 	int nbCouleursMM = 6;
 	int nbCasesMM = 4;
-	List<Character> ensembleCouleurs;
+	public List<Character> ensembleCouleurs;
 	
 	
 /**

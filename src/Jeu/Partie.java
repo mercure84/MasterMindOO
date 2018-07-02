@@ -1,17 +1,25 @@
+package Jeu;
 import java.util.Scanner;
+
+import Joueur.JoueurHumain;
+import Joueur.JoueurIA;
+import Tools.Combinaison;
 
 /**
  * classe qui permet d'instancier une partie avec la création d'un jeu (type de jeu + mode) et des joueurs (1 IA et 1 Humain)
  * @author julie
+ * @param <jeuFini>
  *
  */
 
-public class Partie {
+public class Partie<jeuFini> {
 
 	Game typeJeu = null;
 	String modeJeu = null; // 1 = challenger, 2 = défenseur, 3 = duel
 	JoueurHumain humain = null ;
 	JoueurIA IA = null ;
+	boolean jeuFini = false;
+	Scanner sc = new Scanner(System.in);
 
 	/**
 	 * initiatilisation du jeu : le constructeur affiche un menu qui permet de
@@ -29,7 +37,7 @@ public class Partie {
 		System.out.println("3 - MasterMind Ultra : testons les algorithmes !");
 		boolean choix = false;
 
-		Scanner sc = new Scanner(System.in);
+		
 		while (!choix) {
 			int choixJeu = sc.nextInt();
 			switch (choixJeu) {
@@ -85,7 +93,7 @@ public class Partie {
 				default:
 					System.out.println("ce choix n'est pas dans la liste !");
 
-				}
+				}}
 				
 				
 				// création des joueurs : 1 Humain et 1 IA
@@ -96,9 +104,9 @@ public class Partie {
 				
 				// création de la combinaison pour l'IA si le mode duel ou challenger ont été choisis :
 				if (this.modeJeu != "defenseur") {
-					if (this.typeJeu.nomGame == "Combinaison Secrète")
+					if (this.typeJeu.nomGame == "Combinaison Secrète") {
 					this.IA.combinaisonJoueur = new Combinaison (this.typeJeu.nomGame, this.typeJeu.paramJeu.getNbCasesCS(), null);
-					
+				}
 					
 					if (this.typeJeu.nomGame == "MasterMind") {
 						
@@ -111,22 +119,21 @@ public class Partie {
 				}
 				
 				
-		
-				
-			}
-
-		}
+				}
 
 	
 	
 	
 	public void start() {
+		boolean reJouer = false;
+	
 		System.out.println("Nous allons jouer au " + this.typeJeu.nomGame + " en mode " + this.modeJeu + " !");
 		
 		
 		
 		
 		
-	}
-	}
-
+		
+	
+	
+}}
