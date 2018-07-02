@@ -3,10 +3,10 @@ package Tools;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Comparaison {
+public  class Comparaison {
 	
 	// méthode de comparaison pour le mastermind
-	int[] comparer (List <Character> propositionJ,  List<Character> propositionCible) {
+	public static int[] comparer (List <Character> propositionJ,  List<Character> propositionCible) {
 
 		int bienPlaces = 0;
 		int nbMalPlaces = 0;
@@ -77,24 +77,25 @@ public class Comparaison {
 	}
 	
 // méthode de comparaison pour le jeu CS
-	boolean comparer (String propositionJ, List<Integer> propositionCible) {
+	public static boolean comparer (String propositionJ, List <Integer> code) {
 		String retourVerification = "";
-		boolean gagne = false ;
+		boolean gagne = true ;
+			
 
 		// si la longueur de la combinaison est différent on renvoie immédiatement false
-		if (propositionJ.length() != propositionCible.size()) {
+		if (propositionJ.length() != code.size()) {
 
 			System.out.println(
-					"Il fallait proposer une combinaison à " + propositionCible.size() + " ! Vous perdez un essai !");
+					"Il fallait proposer une combinaison à " + code.size() + " ! Vous perdez un essai !");
 			return false;
 		}
 
-		for (int i = 0; i < propositionCible.size(); i++) {
+		for (int i = 0; i < code.size(); i++) {
 
-			if (propositionCible.get(i) < Character.getNumericValue(propositionJ.charAt(i))) {
+			if (code.get(i) < Character.getNumericValue(propositionJ.charAt(i))) {
 				retourVerification += "-";
 				gagne = false;
-			} else if (propositionCible.get(i) > Character.getNumericValue(propositionJ.charAt(i))) {
+			} else if (code.get(i) > Character.getNumericValue(propositionJ.charAt(i))) {
 				retourVerification += "+";
 				gagne = false;
 			} else {

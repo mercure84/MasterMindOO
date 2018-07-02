@@ -1,4 +1,8 @@
 package Jeu;
+import java.util.Scanner;
+import Joueur.JoueurHumain;
+import Joueur.JoueurIA;
+import Tools.Combinaison;
 import Tools.Parametres;
 
 /**
@@ -7,32 +11,14 @@ import Tools.Parametres;
  * @author julie
  *
  */
-public class Game implements Challenger, Defenseur, Duel {
+public class Game implements Jouable {
 
-	String nomGame = "";
-	boolean IAGagne;
-	boolean humainGagne;
-	Parametres paramJeu ;
-	int nbEssaisMax = 10;
-	boolean modeDev;	
-	
-
-	//constructeur par défaut
-	public Game() {
-		// chargement des paramètres du fichier config.properties
+	@Override
+	public void jouerChallenger(JoueurHumain joueurH, JoueurIA joueurIA) {
+		// TODO Auto-generated method stub
 		
-		
-		this.paramJeu = new Parametres();
-		this.nbEssaisMax = paramJeu.getNbEssais();
-		this.modeDev = paramJeu.isModeDev();
-
-		System.out.println("Un jeu est créé !");
-
-			
 	}
-	
-	
-	
+
 
 	@Override
 	public void jouerDefenseur() {
@@ -49,19 +35,37 @@ public class Game implements Challenger, Defenseur, Duel {
 
 
 	@Override
-	public void jouerChallenger() {
-
-
-		
-		
+	public void jouerDefenseur(JoueurHumain joueurH, JoueurIA joueurIA) {
+		// TODO Auto-generated method stub
 		
 	}
 
 
-
+	ChoixJeu typeJeu;
+	boolean IAGagne;
+	boolean humainGagne;
+	Parametres paramJeu ;
+	int nbEssaisMax = 10;
+	int nbEssais = 0;
+	boolean modeDev;
+	Scanner sc = new Scanner(System.in);
 	
 
+	//constructeur par défaut
+	public Game() {
+		// chargement des paramètres du fichier config.properties
+		
+		
+		this.paramJeu = new Parametres();
+		this.nbEssaisMax = paramJeu.getNbEssais();
+		this.modeDev = paramJeu.isModeDev();
+
+		//System.out.println("Un jeu est créé !");
+
+			
+	}
 	
-	
+
+
 	
 }

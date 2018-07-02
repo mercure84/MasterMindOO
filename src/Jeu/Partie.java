@@ -1,6 +1,5 @@
 package Jeu;
 import java.util.Scanner;
-
 import Joueur.JoueurHumain;
 import Joueur.JoueurIA;
 import Tools.Combinaison;
@@ -45,23 +44,22 @@ public class Partie{
 		System.out.println("3 - MasterMind Ultra : testons les algorithmes !");
 		boolean choix = false;
 
-		// une fois le choix réalisé, on instance le jeu
+		// une fois le choix réalisé, on instancie le jeu
 		while (!choix) {
 			int choixJeu = sc.nextInt();
 			switch (choixJeu) {
 			case 1:
 				this.typeJeu = ChoixJeu.COMBINAISON_SECRETE;
-				this.nouveauJeu = new CombinaisonSecrete();
+				
 				choix = true;
 				break;
 			case 2:
 				this.typeJeu = ChoixJeu.MASTERMIND;
-				this.nouveauJeu = new MasterMind();
+				
 				choix = true;
 				break;
 			case 3:
 				this.typeJeu = ChoixJeu.MASTERMINDULTRA;
-				this.nouveauJeu = new MasterMindUltra();
 				choix = true;
 				break;
 
@@ -107,28 +105,8 @@ public class Partie{
 				}}
 				
 				
-				// création des joueurs : 1 Humain et 1 IA
-				
-				this.humain = new JoueurHumain();
-				this.IA = new JoueurIA(); 
-				
-				
-				// création de la combinaison pour l'IA si le mode duel ou challenger ont été choisis :
-				if (this.modeJeu != ModeJeu.DEFENSEUR) {
-					if (this.typeJeu == ChoixJeu.COMBINAISON_SECRETE) {
-					this.IA.combinaisonJoueur = new Combinaison(ChoixJeu.COMBINAISON_SECRETE, this.nouveauJeu.paramJeu.getNbCasesCS(), null );
-				}
-					
-					else {
-						
-						this.IA.combinaisonJoueur = new Combinaison (ChoixJeu.COMBINAISON_SECRETE, this.nouveauJeu.paramJeu.getNbCasesMM(), this.nouveauJeu.paramJeu.ensembleCouleurs);
-						
-					}
-					
-					
-					
-				}
-				
+
+
 				
 				}
 
@@ -136,14 +114,83 @@ public class Partie{
 	
 	
 	public void start() {
-		System.out.println("Nous allons jouer au " + this.typeJeu + " en mode " + this.modeJeu + " !");
-		
-		switch(this.modeJeu) {
-	
+		boolean rejouer = true;
 		
 		
+		do {
+			//création du jeu 
+			
+			switch (this.typeJeu) {
+			
+			case COMBINAISON_SECRETE:
+				this.nouveauJeu = new CombinaisonSecrete();
+				break;
+			case MASTERMIND:
+				this.nouveauJeu = new MasterMind();
+				break;
+			case MASTERMINDULTRA:
+				this.nouveauJeu = new MasterMindUltra();
+				break;
+			default:
+				break;
+			
+			
+			
+			
+			}
+			
+			
+			// création des joueurs : 1 Humain et 1 IA
+			
+			this.humain = new JoueurHumain();
+			this.IA = new JoueurIA(); 
+			
+			
 		
+		System.out.println("Nous allons jouer à " + this.typeJeu + " en mode " + this.modeJeu + " !");
+		
+		
+		switch (this.modeJeu) {
+		case CHALLENGER :
+			this.nouveauJeu.jouerChallenger(humain, IA);
+			break;
+		case DEFENSEUR :
+			this.nouveauJeu.jouerDefenseur(humain, IA);
+			break;
+		case DUEL :
+			this.nouveauJeu.jouerDefenseur();
+			break;
+				
 		}
+
+		
+		
+		} while (rejouer(this.typeJeu));
+		
+
+		}
+
+
+
+
+	private boolean rejouer(ChoixJeu typeJeu) {
+		while (true) {
+			System.out.println("Voulez vous rejouer à " + typeJeu + " ? O / N");
+			String reponse = sc.nextLine();
+			reponse = reponse.toUpperCase();
+			switch (reponse) {
+			case "O":
+				return true;
+			case "N":
+				return false;
+			default:
+				System.out.println("Mauvaise réponse...");
+				continue;
+			}
+
+		}
+		
+	}
 		
 		
 		
@@ -153,4 +200,4 @@ public class Partie{
 		
 	
 	
-}}
+}
