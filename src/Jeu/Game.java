@@ -1,4 +1,5 @@
 package Jeu;
+import java.util.List;
 import java.util.Scanner;
 import Joueur.JoueurHumain;
 import Joueur.JoueurIA;
@@ -64,6 +65,39 @@ public class Game implements Jouable {
 
 			
 	}
+	
+	/**
+	 * méthode qui définit si le jeu se finit en fonction des résultats des propositions VS Indice VS nb de tours maxi
+	 * @param gagne
+	 * @param nbTours
+	 * @param proposition
+	 * @return
+	 */
+	public boolean endGame(boolean gagne, int nbTours, List proposition) {
+		
+		
+		if ((!gagne) && (nbEssais <= this.nbEssaisMax)){
+			
+			return false;
+			
+		}
+
+		if (nbTours >= this.nbEssaisMax) {
+			System.out.println("Perdu ! Il n'y a plus d'essais disponibles");
+			return false;
+		}
+		
+		if (gagne) {
+			System.out.println("C'est gagné ! Le nombre à trouver était bien de " + proposition + " vous y êtes arrivé en " + nbEssais + " essai(s) !");
+
+		}
+		
+		
+		
+		
+		
+		return gagne;
+			}
 	
 
 

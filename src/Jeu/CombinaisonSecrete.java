@@ -36,19 +36,9 @@ public class CombinaisonSecrete extends Game {
 		do {
 			nbEssais++;
 			String propositionJoueur = sc.nextLine();
+			gagne = joueurIA.comparer(propositionJoueur, joueurIA.combinaisonJoueur.combinaisonCS);
 
-			gagne = Comparaison.comparer(propositionJoueur, joueurIA.combinaisonJoueur.combinaisonCS);
-
-		} while ((!gagne) && (nbEssais <= this.nbEssaisMax));
-
-		if (!gagne) {
-			System.out.println("Perdu ! Il n'y a plus d'essais disponibles");
-		}
-		if (gagne) {
-			System.out.println("C'est gagné ! Le nombre à trouver était bien de "
-					+ joueurIA.combinaisonJoueur.combinaisonCS + " vous y êtes arrivé en " + nbEssais + " essai(s) !");
-
-		}
+		} while (!this.endGame(gagne, nbEssais, joueurIA.combinaisonJoueur.combinaisonCS));
 
 	}
 
@@ -81,24 +71,19 @@ public class CombinaisonSecrete extends Game {
 			String indice = joueurH.joueurIndiqueCS(joueurIA.combinaisonJoueur.combinaisonCS);
 			gagne = joueurIA.ajusterCombinaisonCS(indice, joueurIA.combinaisonJoueur.combinaisonCS);
 
-		} while ((!gagne) && (nbEssais <= nbEssaisMax));
-		if (!gagne) {
-			System.out.println("Perdu ! Il n'y a plus d'essais disponibles");
-		}
-
-		if (gagne) {
-			System.out.println("C'est gagné ! Le nombre à trouver était bien de " + propositionIA
-					+ " l'IA y est parvenu en " + nbEssais + " essai(s) !");
-
-		}
+		} while (!this.endGame(gagne, nbEssais, joueurIA.combinaisonJoueur.combinaisonCS));
 
 	}
 
-	/**
-	 * méthode appelée quand le joueur doit donner l'indice à l'IA
-	 * 
-	 * @param propositionIA
-	 */
 
 
-}
+
+public void jouerDuel(JoueurHumain joueurH, JoueurIA joueurIA) {
+	
+	
+	
+	
+	
+	
+	
+}}

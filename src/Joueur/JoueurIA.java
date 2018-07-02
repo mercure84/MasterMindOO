@@ -11,7 +11,16 @@ public class JoueurIA extends Joueur {
 		this.nomJoueur = "IA";
 
 	}
+	
 
+	
+	
+/**
+ * méthode qui ajuste la combinaison CS de l'IA en fonction des indices reçus ! renvoie un boolean gagne pour dire si la combinaison a été devinée ou non
+ * @param indice
+ * @param derniereProposition
+ * @return
+ */
 	public boolean ajusterCombinaisonCS(String indice, List<Integer> derniereProposition) {
 		int chiffresOK = 0;
 		boolean gagne = false;
