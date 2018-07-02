@@ -20,6 +20,8 @@ import Jeu.ModeJeu;
 public class Combinaison {
 
 	public List<Integer> combinaisonCS = new ArrayList();
+	public List<Integer> combinaisonCSMin = new ArrayList();
+	public List<Integer> combinaisonCSMax = new ArrayList();
 
 	public List<Character> combinaisonMM = new ArrayList();;
 
@@ -42,13 +44,15 @@ public class Combinaison {
 
 	}
 
-	// construction d'une combinaison de départ en mode défenseur pour l'IA
+	// construction d'une combinaison de départ en mode défenseur pour l'IA -- création des bornes Maxi et mini via 2 autres combinaisons
 	public Combinaison(ChoixJeu typeJeu, int nbCases, ModeJeu modeJeu) {
 
 		if (modeJeu == ModeJeu.DEFENSEUR) {
 
 			for (int i = 0; i < nbCases; i++) {
-				this.combinaisonCS.add(4);
+				this.combinaisonCS.add(5);
+				this.combinaisonCSMax.add(10);
+				this.combinaisonCSMin.add(0);
 
 			}
 

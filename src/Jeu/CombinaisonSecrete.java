@@ -76,9 +76,10 @@ public class CombinaisonSecrete extends Game {
 
 			}
 			System.out.println("L'IA propose : " + propositionIA);
-			System.out.println("que lui donnez vous comme indices ? (+), (-), (=)");
+			
 
-			joueurIndique(propositionIA);
+			String indice = joueurH.joueurIndiqueCS(joueurIA.combinaisonJoueur.combinaisonCS);
+			gagne = joueurIA.ajusterCombinaisonCS(indice, joueurIA.combinaisonJoueur.combinaisonCS);
 
 		} while ((!gagne) && (nbEssais <= nbEssaisMax));
 		if (!gagne) {
@@ -98,53 +99,6 @@ public class CombinaisonSecrete extends Game {
 	 * 
 	 * @param propositionIA
 	 */
-	public boolean joueurIndique(String proposition) {
 
-		boolean attenteJoueur = true;
-		gagne = false;
-		// on fait saisir au joueur son indice, mais on lui demandera autant de fois
-		// que nécessaire, jusqu'à ce que le format soit bon
-		do {
-			String indiceJoueur = sc.nextLine();
-			String erreur = "le format de votre indice est incorrect... recommencez !";
-			int verifCombinaison = 0;
-			int chiffresOk = 0;
-			if (indiceJoueur.length() != this.nbCases) {
-				System.out.println(erreur);
-			} else {
-				for (int i = 0; i < indiceJoueur.length(); i++) {
-					switch (indiceJoueur.charAt(i)) {
-					case '+':
-						System.out.println(Character.getNumericValue(proposition.charAt(i)));
-						verifCombinaison++;
-						break;
-					case '-':
-						System.out.println(Character.getNumericValue(proposition.charAt(i)));
-						verifCombinaison++;
-						break;
-					case '=':
-
-						verifCombinaison++;
-						chiffresOk++;
-						break;
-					default:
-						// on stoppe la boucle avec un message d'erreur si l'indice proposé est non
-						// conforme
-						System.out.println(erreur);
-						i = this.nbCases;
-						break;
-
-					}
-				}
-				if (verifCombinaison == this.nbCases) {
-					attenteJoueur = false;
-				}
-
-				gagne = ((chiffresOk == this.nbCases) ? true : false);
-			}
-
-		} while (attenteJoueur);
-		return gagne;
-	}
 
 }

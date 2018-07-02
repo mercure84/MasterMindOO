@@ -1,22 +1,57 @@
 package Joueur;
+
+import java.util.List;
 import java.util.Scanner;
 
 import Tools.Combinaison;
 
 public class JoueurHumain extends Joueur {
+	Scanner sc = new Scanner(System.in);
 
-	
-	
 	public JoueurHumain() {
-		
+
 		super();
-		
-		//System.out.println("Quel est votre nom ?");
-		//Scanner sc = new Scanner(System.in);
-		//this.nomJoueur = sc.nextLine();
-		
-		
-		
+
 	}
 
+	public String joueurIndiqueCS(List<Integer> proposition) {
+		String indiceJoueur = "";
+		boolean attenteJoueur = true;
+		int verifIndice = 0;
+		System.out.println("Quels indices proposez vous ? (+), (-), (=)");
+		// on fait saisir au joueur son indice, mais on lui demandera autant de fois
+		// que nécessaire, jusqu'à ce que le format soit bon
+		do {
+			indiceJoueur = sc.nextLine();
+			String erreur = "le format de votre indice est incorrect... recommencez !";
+			int verifCombinaison = 0;
+			int chiffresOk = 0;
+			// on vérifie la taille de l'indice...
+			
+			//System.out.println("taille indice = " + indiceJoueur.length() + " taille proposition " + proposition.size());
+			if (indiceJoueur.length() != proposition.size()) {
+				System.out.println(erreur);
+			} else {// on vérifie que l'indice comporte bien des + ou des - ou =
+				for (int i = 0; i < indiceJoueur.length(); i++) {
+					if (indiceJoueur.charAt(i) != '-' && indiceJoueur.charAt(i) != '+'
+							&& indiceJoueur.charAt(i) != '=') {
+
+						System.out.println(erreur);
+					} else {
+						verifIndice++;
+					}
+				}
+
+				if (verifIndice == proposition.size()) {
+
+					attenteJoueur = false;
+
+				}
+
+			}
+
+		} while (attenteJoueur);
+		return indiceJoueur;
+
+	}
 }
