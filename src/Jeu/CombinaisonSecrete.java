@@ -63,6 +63,7 @@ public class CombinaisonSecrete extends Game {
 
 			propositionIA = "";
 			nbEssais++;
+			// formatage en string de la proposition de l'IA
 			for (int i = 0; i < joueurIA.combinaisonJoueur.combinaisonCS.size(); i++) {
 
 				propositionIA += joueurIA.combinaisonJoueur.combinaisonCS.get(i) + " ";

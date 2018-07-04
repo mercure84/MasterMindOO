@@ -60,7 +60,7 @@ public class Parametres {
 	
 	List<Character> definirEnsembleCouleurs(int n) {
 
-		// création du set de couleurs :
+		// création du set de couleurs : on considère qu'il y a les 10 couleurs possibles au démarrage et en fonction du paramétrage on va retirer les couleurs superflues
 		List<Character> ensembleCouleurs = new ArrayList();
 		ensembleCouleurs.add('J'); // jaune
 		ensembleCouleurs.add('B'); // bleu

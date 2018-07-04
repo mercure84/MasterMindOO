@@ -54,4 +54,20 @@ public class JoueurHumain extends Joueur {
 		return indiceJoueur;
 
 	}
+
+	public int[] joueurIndiqueMM() {
+		Scanner sc = new Scanner(System.in);
+		int[] score = new int[2];
+
+		System.out.println("Combien de pions bien placés ?");
+		int pionsBiensPlaces = sc.nextInt();
+		sc.nextLine();
+		System.out.println("Combien de pions mal placés ?");
+		int pionsMalplaces = sc.nextInt();
+		score[0] = pionsBiensPlaces;
+		score[1] = pionsMalplaces;
+
+		return score;
+		
+	}
 }

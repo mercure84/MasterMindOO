@@ -80,70 +80,131 @@ public class Combinaison {
 	public Combinaison(ChoixJeu typeJeu, int nbCases, List<Character> ensembleCouleurs, ModeJeu modeJeu) {
 		List<List> listeCombinaisons = new ArrayList();
 		if (typeJeu == ChoixJeu.MASTERMIND) {
-			
+
 			int n = ensembleCouleurs.size();
 			int nbCombinaisonsPossibles = (int) Math.pow(n, nbCases);
 			System.out.println("nb combinaisons possibles pour l'IA = " + nbCombinaisonsPossibles);
 			// création de l'ensemble des combinaisons pour une combinaison de 4 à 10 cases
 
 			for (int i = 0; i < n; i++) {
-				List<Character> uneCombinaison = new ArrayList();
 				for (int j = 0; j < n; j++) {
 					for (int k = 0; k < n; k++) {
 						for (int l = 0; l < n; l++) {
-							if (nbCases <= 4) {
-								break;
-							}
 
-							for (int m = 0; m < n; m++) {
-								if (nbCases <= 5) {
-									break;
-								}
+							if (nbCases == 4) {
+								List<Character> uneCombinaison = new ArrayList();
+								uneCombinaison.add(ensembleCouleurs.get(i));
+								uneCombinaison.add(ensembleCouleurs.get(j));
+								uneCombinaison.add(ensembleCouleurs.get(k));
+								uneCombinaison.add(ensembleCouleurs.get(l));
+								listeCombinaisons.add(uneCombinaison);
 
-								for (int o = 0; o < n; o++) {
-									if (nbCases <= 6) {
-										break;
-									}
+							} else {
+								for (int m = 0; m < n; m++) {
+									if (nbCases == 5) {
+										List<Character> uneCombinaison = new ArrayList();
+										uneCombinaison.add(ensembleCouleurs.get(i));
+										uneCombinaison.add(ensembleCouleurs.get(j));
+										uneCombinaison.add(ensembleCouleurs.get(k));
+										uneCombinaison.add(ensembleCouleurs.get(l));
+										uneCombinaison.add(ensembleCouleurs.get(m));
+										listeCombinaisons.add(uneCombinaison);
 
-									for (int p = 0; p < n; p++) {
-										if (nbCases <= 7) {
-											break;
-										}
+									} else {
+										for (int o = 0; o < n; o++) {
+											if (nbCases == 6) {
+												List<Character> uneCombinaison = new ArrayList();
+												uneCombinaison.add(ensembleCouleurs.get(i));
+												uneCombinaison.add(ensembleCouleurs.get(j));
+												uneCombinaison.add(ensembleCouleurs.get(k));
+												uneCombinaison.add(ensembleCouleurs.get(l));
+												uneCombinaison.add(ensembleCouleurs.get(m));
+												uneCombinaison.add(ensembleCouleurs.get(o));
+												listeCombinaisons.add(uneCombinaison);
+											} else {
 
-										for (int q = 0; q < n; q++) {
-											if (nbCases <= 8) {
-												break;
-											}
+												for (int p = 0; p < n; p++) {
+													if (nbCases == 7) {
+														List<Character> uneCombinaison = new ArrayList();
+														uneCombinaison.add(ensembleCouleurs.get(i));
+														uneCombinaison.add(ensembleCouleurs.get(j));
+														uneCombinaison.add(ensembleCouleurs.get(k));
+														uneCombinaison.add(ensembleCouleurs.get(l));
+														uneCombinaison.add(ensembleCouleurs.get(m));
+														uneCombinaison.add(ensembleCouleurs.get(o));
+														uneCombinaison.add(ensembleCouleurs.get(p));
+														listeCombinaisons.add(uneCombinaison);
+													} else {
+														for (int q = 0; q < n; q++) {
+															if (nbCases == 8) {
+																List<Character> uneCombinaison = new ArrayList();
+																uneCombinaison.add(ensembleCouleurs.get(i));
+																uneCombinaison.add(ensembleCouleurs.get(j));
+																uneCombinaison.add(ensembleCouleurs.get(k));
+																uneCombinaison.add(ensembleCouleurs.get(l));
+																uneCombinaison.add(ensembleCouleurs.get(m));
+																uneCombinaison.add(ensembleCouleurs.get(o));
+																uneCombinaison.add(ensembleCouleurs.get(p));
+																uneCombinaison.add(ensembleCouleurs.get(q));
+																listeCombinaisons.add(uneCombinaison);
+															} else {
+																for (int r = 0; r < n; r++) {
+																	if (nbCases == 9) {
+																		List<Character> uneCombinaison = new ArrayList();
+																		uneCombinaison.add(ensembleCouleurs.get(i));
+																		uneCombinaison.add(ensembleCouleurs.get(j));
+																		uneCombinaison.add(ensembleCouleurs.get(k));
+																		uneCombinaison.add(ensembleCouleurs.get(l));
+																		uneCombinaison.add(ensembleCouleurs.get(m));
+																		uneCombinaison.add(ensembleCouleurs.get(o));
+																		uneCombinaison.add(ensembleCouleurs.get(p));
+																		uneCombinaison.add(ensembleCouleurs.get(q));
+																		uneCombinaison.add(ensembleCouleurs.get(r));
+																		listeCombinaisons.add(uneCombinaison);
+																	} else {
 
-											for (int r = 0; r < n; r++) {
-												if (nbCases <= 9) {
-													break;
+																		for (int s = 0; s < n; s++) {
+																			if (nbCases == 10) {
+
+																				List<Character> uneCombinaison = new ArrayList();
+																				uneCombinaison
+																						.add(ensembleCouleurs.get(i));
+																				uneCombinaison
+																						.add(ensembleCouleurs.get(j));
+																				uneCombinaison
+																						.add(ensembleCouleurs.get(k));
+																				uneCombinaison
+																						.add(ensembleCouleurs.get(l));
+																				uneCombinaison
+																						.add(ensembleCouleurs.get(m));
+																				uneCombinaison
+																						.add(ensembleCouleurs.get(o));
+																				uneCombinaison
+																						.add(ensembleCouleurs.get(p));
+																				uneCombinaison
+																						.add(ensembleCouleurs.get(q));
+																				uneCombinaison
+																						.add(ensembleCouleurs.get(r));
+																				uneCombinaison
+																						.add(ensembleCouleurs.get(s));
+																				listeCombinaisons.add(uneCombinaison);
+																			}
+
+																		}
+																	}
+																}
+															}
+														}
+													}
 												}
-
-												for (int s = 0; s < n; s++) {
-
-													uneCombinaison.add(ensembleCouleurs.get(s));
-												}
-												uneCombinaison.add(ensembleCouleurs.get(r));
 											}
-											uneCombinaison.add(ensembleCouleurs.get(q));
 										}
-										uneCombinaison.add(ensembleCouleurs.get(p));
 									}
-									uneCombinaison.add(ensembleCouleurs.get(o));
 								}
-								uneCombinaison.add(ensembleCouleurs.get(m));
 							}
-							uneCombinaison.add(ensembleCouleurs.get(l));
 						}
-						uneCombinaison.add(ensembleCouleurs.get(k));
 					}
-					uneCombinaison.add(ensembleCouleurs.get(j));
 				}
-				uneCombinaison.add(ensembleCouleurs.get(i));
-
-				listeCombinaisons.add(uneCombinaison);
-				
 			}
 
 			this.ensembleCombinaisonMM = listeCombinaisons;
