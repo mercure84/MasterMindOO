@@ -26,9 +26,12 @@ public class Combinaison {
 	public List<Integer> combinaisonCSMin = new ArrayList();
 	public List<Integer> combinaisonCSMax = new ArrayList();
 
+	//MM = pour le mode challengeur
 	public List<Character> combinaisonMM = new ArrayList();
 
 	public List<List> ensembleCombinaisonMM = new ArrayList();
+	
+	//MMD = pour le mode défenseur
 	public List<Character> combinaisonMMD = new ArrayList();
 
 	// constructeur d'une combinaison aléatoire pour CS avec en paramètre le type de
@@ -70,7 +73,7 @@ public class Combinaison {
 				combinaisonInventee.add(couleur);
 
 			}
-			this.combinaisonMMD = combinaisonInventee;
+			this.combinaisonMM = combinaisonInventee;
 		}
 
 	}
@@ -207,6 +210,24 @@ public class Combinaison {
 			}
 
 			this.ensembleCombinaisonMM = listeCombinaisons;
+			
+			// si on est en mode duel il faut générer aussi une combinaison que l'humain devra chercher !
+			if(modeJeu == ModeJeu.DUEL) {
+			
+			List<Character> combinaisonInventee = new ArrayList();
+
+			// calcul de la combinaison à nbCases positions
+
+			for (int i = 0; i < nbCases; i++) {
+
+				int k = new Random().nextInt(ensembleCouleurs.size());
+				char couleur = ensembleCouleurs.get(k);
+				combinaisonInventee.add(couleur);
+
+			}
+			this.combinaisonMM = combinaisonInventee;
+			}
+			
 		}
 
 		
