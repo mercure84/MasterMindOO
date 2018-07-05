@@ -35,8 +35,9 @@ public class JoueurHumain extends Joueur {
 				for (int i = 0; i < indiceJoueur.length(); i++) {
 					if (indiceJoueur.charAt(i) != '-' && indiceJoueur.charAt(i) != '+'
 							&& indiceJoueur.charAt(i) != '=') {
-
-						System.out.println(erreur);
+// si on est ici c'est que le format de l'indice n'est pas bon...
+						continue;
+						
 					} else {
 						verifIndice++;
 					}
@@ -46,6 +47,9 @@ public class JoueurHumain extends Joueur {
 
 					attenteJoueur = false;
 
+				}
+				else {
+					System.out.println(erreur);
 				}
 
 			}

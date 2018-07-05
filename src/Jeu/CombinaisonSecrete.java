@@ -10,15 +10,13 @@ import Tools.Combinaison;
 
 public class CombinaisonSecrete extends Game {
 
-	boolean gagne = false;
+	
 	int nbCases;
-
-
 	public CombinaisonSecrete() {
 		super();
 		this.typeJeu = ChoixJeu.COMBINAISON_SECRETE;
 		this.nbCases = paramJeu.getNbCasesCS();
-		System.out.println("CS créé");
+
 	}
 
 	/**
@@ -28,7 +26,6 @@ public class CombinaisonSecrete extends Game {
 
 		// l'IA génère une combinaison à trouver par le joueur
 		joueurIA.combinaisonJoueur = new Combinaison(this.typeJeu, this.nbCases);
-
 		if (modeDev) {
 			System.out.println(
 					"le mode dev est activé, la combinaison de l'IA est " + joueurIA.combinaisonJoueur.combinaisonCSD);
@@ -39,9 +36,9 @@ public class CombinaisonSecrete extends Game {
 		do {
 			nbEssais++;
 			String propositionJoueur = sc.nextLine();
-			gagne = joueurIA.comparer(propositionJoueur, joueurIA.combinaisonJoueur.combinaisonCSD);
+			this.partieFinie = joueurIA.comparer(propositionJoueur, joueurIA.combinaisonJoueur.combinaisonCSD);
 
-		} while (!this.endGame(gagne, nbEssais, joueurIA.combinaisonJoueur.combinaisonCSD));
+		} while (!this.endGame(this.partieFinie, nbEssais, joueurIA.combinaisonJoueur.combinaisonCSD, false));
 
 	}
 
@@ -58,7 +55,7 @@ public class CombinaisonSecrete extends Game {
 		
 		joueurIA.combinaisonJoueur = new Combinaison(this.typeJeu, this.nbCases);
 
-		gagne = false;
+		
 		do {
 
 			propositionIA = "";
@@ -73,9 +70,9 @@ public class CombinaisonSecrete extends Game {
 			
 
 			String indice = joueurH.joueurIndiqueCS(joueurIA.combinaisonJoueur.combinaisonCS);
-			gagne = joueurIA.ajusterCombinaisonCS(indice, joueurIA.combinaisonJoueur.combinaisonCS);
+			this.partieFinie = joueurIA.ajusterCombinaisonCS(indice, joueurIA.combinaisonJoueur.combinaisonCS);
 
-		} while (!this.endGame(gagne, nbEssais, joueurIA.combinaisonJoueur.combinaisonCS));
+		} while (!this.endGame(this.partieFinie, nbEssais, joueurIA.combinaisonJoueur.combinaisonCS, false));
 
 	}
 
@@ -127,11 +124,11 @@ public void jouerDuel(JoueurHumain joueurH, JoueurIA joueurIA) {
 			} 
 			if (gagneJ) {System.out.println("Vous avez gagné !");
 			winProposition = joueurIA.combinaisonJoueur.combinaisonCSD;}
-			gagne = true;
+			this.partieFinie = true;
 		}
 		
 
-	} while (!this.endGame(gagne, nbEssais, winProposition));
+	} while (!this.endGame(this.partieFinie, nbEssais, winProposition, false));
 	
 	
 	

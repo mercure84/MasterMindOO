@@ -10,8 +10,7 @@ import Tools.Combinaison;
 public class MasterMind extends Game {
 	int nbCouleurs;
 	int nbCases;
-	boolean gagne = false;
-
+	
 	public MasterMind() {
 		super();
 		this.typeJeu = ChoixJeu.MASTERMIND;
@@ -45,16 +44,16 @@ public class MasterMind extends Game {
 				propositionJ.add(propositionJoueur.charAt(k));
 			}
 
-			retour = joueurIA.comparer(propositionJ, joueurIA.combinaisonJoueur.combinaisonMMD);
+			retour = joueurH.comparer(propositionJ, joueurIA.combinaisonJoueur.combinaisonMMD);
 			System.out.println(" --> Pions bien placés : " + retour[0] + ", Pions mal placés : " + retour[1]);
 
-			// si le nombre de pions bien placés = taille de la combinaison, c'est gagné !
-			if (retour[0] == propositionJ.size()) {
+			if (joueurH.gagne) {
 				System.out.println("Vous avez gagné !");
-				gagne = true;
+				this.partieFinie = true;
 			}
 
-		} while (!this.endGame(gagne, nbEssais, joueurIA.combinaisonJoueur.combinaisonMMD));
+
+		} while (!this.endGame(partieFinie, nbEssais, joueurIA.combinaisonJoueur.combinaisonMMD, false));
 
 	}
 
@@ -66,15 +65,24 @@ public class MasterMind extends Game {
 		System.out.println("Les couleurs disponibles sont : " + this.paramJeu.ensembleCouleurs + ", nous jouons sur "
 				+ this.paramJeu.getNbCasesMM() + " cases");
 		System.out.println("Mémorisez bien une combinaison ! l'IA va tenter de la deviner");
-		gagne = false;
+		partieFinie = false;
 
 		do {
 			nbEssais++;
 			joueurIA.proposerCombinaisonMM();
 			int[] indice = joueurH.joueurIndiqueMM();
 			joueurIA.nettoyerCombinaisonsMM(indice);
+			if (joueurIA.gagne) {
+				System.out.println("l'IA a gagné !");
+				this.partieFinie = true;
+				
+			}
+			
+			if (joueurIA.IAbug) {
+				this.partieFinie = true;
+			}
 
-		} while (!this.endGame(gagne, nbEssais, joueurIA.combinaisonJoueur.combinaisonMMD));
+		} while (!this.endGame(partieFinie, nbEssais, joueurIA.combinaisonJoueur.combinaisonMMD, joueurIA.IAbug));
 
 	}
 }

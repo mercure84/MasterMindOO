@@ -11,6 +11,7 @@ public class Joueur {
 
 	String nomJoueur = ""; // soit IA soit Humain
 	public Combinaison combinaisonJoueur;
+	public boolean gagne = false;
 
 	// méthode de comparaison pour le jeu CS
 	public boolean comparer(String propositionJ, List<Integer> code) {
@@ -105,9 +106,16 @@ public class Joueur {
 
 				resultat[0] = bienPlaces;
 				resultat[1] = nbMalPlaces;
+				
+				// si le nombre de pions bien placés = taille de la combinaison, c'est gagné !
 
 			}
-			// System.out.println("proposition = " + proposition + " combi = "+ code);
+			if (resultat[0] == propositionCible.size()) {
+				
+				this.gagne = true;
+			}
+
+			
 			return resultat;
 
 }}

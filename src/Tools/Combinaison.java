@@ -83,7 +83,6 @@ public class Combinaison {
 
 			int n = ensembleCouleurs.size();
 			int nbCombinaisonsPossibles = (int) Math.pow(n, nbCases);
-			System.out.println("nb combinaisons possibles pour l'IA = " + nbCombinaisonsPossibles);
 			// création de l'ensemble des combinaisons pour une combinaison de 4 à 10 cases
 
 			for (int i = 0; i < n; i++) {
@@ -210,7 +209,7 @@ public class Combinaison {
 			this.ensembleCombinaisonMM = listeCombinaisons;
 		}
 
-		System.out.println("L'ordi vient de générer " + listeCombinaisons.size() + " combinaisons !!!");
+		
 	}
 
 }

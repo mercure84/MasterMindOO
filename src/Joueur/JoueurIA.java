@@ -7,22 +7,22 @@ import java.util.Random;
 import Tools.Combinaison;
 
 public class JoueurIA extends Joueur {
+	public boolean IAbug;
 
 	public JoueurIA() {
 
 		this.nomJoueur = "IA";
 
 	}
-	
 
-	
-	
-/**
- * méthode qui ajuste la combinaison CS de l'IA en fonction des indices reçus ! renvoie un boolean gagne pour dire si la combinaison a été devinée ou non
- * @param indice
- * @param derniereProposition
- * @return
- */
+	/**
+	 * méthode qui ajuste la combinaison CS de l'IA en fonction des indices reçus !
+	 * renvoie un boolean gagne pour dire si la combinaison a été devinée ou non
+	 * 
+	 * @param indice
+	 * @param derniereProposition
+	 * @return
+	 */
 	public boolean ajusterCombinaisonCS(String indice, List<Integer> derniereProposition) {
 		int chiffresOK = 0;
 		boolean gagne = false;
@@ -35,16 +35,16 @@ public class JoueurIA extends Joueur {
 			case '+':
 				// c'est + donc la nouvelle proposition sera entre le chiffre proposé et le maxi
 				// en cours
-				this.combinaisonJoueur.combinaisonCS.set(i, (int)((maxEnCours + chiffreEnCours) / 2));
+				this.combinaisonJoueur.combinaisonCS.set(i, (int) ((maxEnCours + chiffreEnCours) / 2));
 				// mise à jour du chiffre mini en cours :
-				this.combinaisonJoueur.combinaisonCSMin.set(i, (int)(chiffreEnCours));
+				this.combinaisonJoueur.combinaisonCSMin.set(i, (int) (chiffreEnCours));
 				break;
 			case '-':
 				// c'est moins donc la nouvelle proposition sera entre le chiffre proposé et le
 				// mini en cours
-				this.combinaisonJoueur.combinaisonCS.set(i, (int)((minEnCours + chiffreEnCours) / 2));
+				this.combinaisonJoueur.combinaisonCS.set(i, (int) ((minEnCours + chiffreEnCours) / 2));
 				// mise à jour du maxi en cours
-				this.combinaisonJoueur.combinaisonCSMax.set(i, (int)(chiffreEnCours));
+				this.combinaisonJoueur.combinaisonCSMax.set(i, (int) (chiffreEnCours));
 				break;
 			case '=':
 				// chiffre trouvé !
@@ -65,68 +65,71 @@ public class JoueurIA extends Joueur {
 
 	}
 
+	public void proposerCombinaisonMM() {
+		// on va prendre alétoirement une combinaison disponible dans l'ensemble restant
 
-
-
-public List<Character> proposerCombinaisonMM() {
-	// on va prendre alétoirement une combinaison disponible dans l'ensemble restant
-	List<Character> proposition = new ArrayList();
-	int index = new Random().nextInt(this.combinaisonJoueur.ensembleCombinaisonMM.size());
-	proposition = this.combinaisonJoueur.ensembleCombinaisonMM.get(index);
-	System.out.println("L'IA vous propose la combinaison suivante : " + proposition);
-	this.combinaisonJoueur.combinaisonMMD = proposition;
-	return proposition;
-	// TODO Auto-generated method stub
-	
-}
-
-
-
-
-public void nettoyerCombinaisonsMM(int[] indice) {
+			List<Character> proposition = new ArrayList();
+			int index = new Random().nextInt(this.combinaisonJoueur.ensembleCombinaisonMM.size());
+			
+			proposition = this.combinaisonJoueur.ensembleCombinaisonMM.get(index);
+			System.out.println(
+					"L'IA vous propose la combinaison suivante : " + proposition + " Nb possibilités restantes : "
+							+ this.combinaisonJoueur.ensembleCombinaisonMM.size());
+			this.combinaisonJoueur.combinaisonMMD = proposition;
+		}
 
 	
-	// si l'indice "pions bien placés" est égal à la longueur de la proposition de l'IA, c'est que c'est gagné !
+
+	public void nettoyerCombinaisonsMM(int[] indice) {
+
+		// si l'indice "pions bien placés" est égal à la longueur de la proposition de
+		// l'IA, c'est que c'est gagné !
+
+		if (indice[0] != this.combinaisonJoueur.combinaisonMMD.size()) {
+
+			// on cherche les combinaisons à éliminer, cad celles qui n'obtiennent pas le
+			// score prévu : on va tester toutes les combinaisons de l'ensemble restant par rapport
+			// à la dernière proposition de l'IA
+			List<List> combinaisonsAEliminer = new ArrayList();
+			for (int i = 0; i < this.combinaisonJoueur.ensembleCombinaisonMM.size(); i++) {
+				List<Character> combiATester = new ArrayList(this.combinaisonJoueur.ensembleCombinaisonMM.get(i));
+				int[] scoreA = this.comparer(this.combinaisonJoueur.combinaisonMMD, combiATester);
+
+				if (!((scoreA[0] == indice[0]) && (scoreA[1] == indice[1]))) {
+					// si la combinaison à tester ne satisfait pas à l'indice, on l'ajotue dans la
+					// liste des indésirables.
+					combinaisonsAEliminer.add(combiATester);
+
+				}
+
+			}
+
+			// on retire de la liste des combinaisons restantes, toutes les combinaisons
+			// trouvées précédemment
+			for (List list : combinaisonsAEliminer) {
+
+				this.combinaisonJoueur.ensembleCombinaisonMM.remove(list);
+				
+
+			}
+			combinaisonsAEliminer.clear();
+
+			if (this.combinaisonJoueur.ensembleCombinaisonMM.isEmpty()) {
+				System.out
+						.println("Il y a malheureusement une incohérence dans vos réponses...La partie se termine...");
+this.IAbug = true;
+				
+			} else {
+			this.gagne = false;}
+
+		} else {
+
+			// l'IA a gagné
 	
-if (indice[0] != this.combinaisonJoueur.combinaisonMMD.size()) {
-
-	// on cherche les combinaisons à éliminer, cad celles qui n'obtiennent pas le
-	// score prévu : on va tester toutes les combinaisons de l'ensemble par rapport à la dernière proposition de l'IA
-	List<List> combinaisonsAEliminer = new ArrayList();
-	for (int i = 0; i < this.combinaisonJoueur.ensembleCombinaisonMM.size(); i++) {
-		List<Character> combiATester = new ArrayList(this.combinaisonJoueur.ensembleCombinaisonMM.get(i));
-		int[] scoreA = this.comparer(this.combinaisonJoueur.combinaisonMMD, combiATester);
-
-		if (!((scoreA[0] == indice[0]) && (scoreA[1] == indice[1]))) {
-// si la combinaison à tester ne satisfait pas à l'indice, on l'ajotue dans la liste des indésirables.
-			combinaisonsAEliminer.add(combiATester);
+			this.gagne = true;
 
 		}
 
 	}
-
-	// on retire de la liste des combinaisons restantes, toutes les combinaisons
-	// trouvées précédemment
-	for (List list : combinaisonsAEliminer) {
-
-		this.combinaisonJoueur.ensembleCombinaisonMM.remove(list);
-
-	}
-	combinaisonsAEliminer.clear();
-
-	System.out.println("il reste : " + this.combinaisonJoueur.ensembleCombinaisonMM.size() + " combinaissons possibles pour l'IA !");
-	if (this.combinaisonJoueur.ensembleCombinaisonMM.isEmpty()) {
-		System.out.println("Il y a malheureusement une incohérence dans vos réponses...");
-	}
-
-} else {
-// l'ensemble des combinaisons restantes est à vider si on est ici c'est que l'IA a gagné
-	this.combinaisonJoueur.ensembleCombinaisonMM.clear();
-
-}
-
-
-}
-	
 
 }
