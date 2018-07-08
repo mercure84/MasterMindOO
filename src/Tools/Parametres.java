@@ -41,6 +41,7 @@ public class Parametres {
 			
 			this.modeDev = Boolean.parseBoolean(properties.getProperty("modeDev"));
 			this.nbEssais = Integer.parseInt(properties.getProperty("nbEssais"));
+			this.nbCasesCS = Integer.parseInt(properties.getProperty("nbCasesCS"));
 			this.nbCouleursMM = Integer.parseInt(properties.getProperty("nbCouleurs"));
 			this.nbCasesMM = Integer.parseInt(properties.getProperty("nbCasesMM"));
 			this.ensembleCouleurs = definirEnsembleCouleurs(this.nbCouleursMM);
