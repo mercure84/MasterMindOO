@@ -58,6 +58,7 @@ public class JoueurIA extends Joueur {
 		}
 
 		if (chiffresOK == derniereProposition.size()) {
+			
 			gagneCombi = true;
 			this.gagne = true;
 		}
@@ -74,8 +75,8 @@ public class JoueurIA extends Joueur {
 			
 			proposition = this.combinaisonJoueur.ensembleCombinaisonMM.get(index);
 			System.out.println(
-					"L'IA vous propose la combinaison suivante : " + proposition + " Nb possibilités restantes : "
-							+ this.combinaisonJoueur.ensembleCombinaisonMM.size());
+					"L'IA vous propose la combinaison suivante : " + proposition + " [Nb possibilités restantes : "
+							+ this.combinaisonJoueur.ensembleCombinaisonMM.size()+"]");
 			this.combinaisonJoueur.combinaisonMMD = proposition;
 		}
 
@@ -115,9 +116,9 @@ public class JoueurIA extends Joueur {
 			}
 			combinaisonsAEliminer.clear();
 
+			//si l'ensemble des combinaisons restantes est vide c'est qu'il y a une erreur dans les indices donnés par l'humain...
 			if (this.combinaisonJoueur.ensembleCombinaisonMM.isEmpty()) {
-				System.out
-						.println("Il y a malheureusement une incohérence dans vos réponses...La partie se termine...");
+
 this.IAbug = true;
 				
 			} else {

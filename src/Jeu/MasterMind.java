@@ -3,8 +3,9 @@ package Jeu;
 import java.util.ArrayList;
 import java.util.List;
 
-import Joueur.JoueurHumain;
+import Joueur.Joueur;
 import Joueur.JoueurIA;
+import Joueur.JoueurHumain;
 import Tools.Combinaison;
 
 public class MasterMind extends Game {
@@ -33,7 +34,7 @@ public class MasterMind extends Game {
 		System.out.println("Quelle est votre proposition ?");
 
 		do {
-			nbEssais++;
+			this.nbEssais++;
 			String propositionJoueur = sc.nextLine();
 			propositionJoueur = propositionJoueur.toUpperCase();
 			int[] retour = new int[2];
@@ -53,7 +54,7 @@ public class MasterMind extends Game {
 			}
 
 
-		} while (!this.endGame(this.partieFinie, nbEssais, joueurIA.IAbug, joueurIA, joueurH));
+		} while (!this.endGame(this.nbEssais, joueurIA.IAbug, joueurIA, joueurH));
 
 	}
 
@@ -82,7 +83,7 @@ public class MasterMind extends Game {
 				this.partieFinie = true;
 			}
 
-		} while (!this.endGame(this.partieFinie, nbEssais, joueurIA.IAbug, joueurIA, joueurH));
+		} while (!this.endGame(nbEssais, joueurIA.IAbug, joueurIA, joueurH));
 
 	}
 	
@@ -150,7 +151,7 @@ public class MasterMind extends Game {
 			}
 			
 
-		} while (!this.endGame(this.partieFinie, nbEssais, joueurIA.IAbug, joueurIA, joueurH));
+		} while (!this.endGame(nbEssais, joueurIA.IAbug, joueurIA, joueurH));
 		
 		
 		
