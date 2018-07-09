@@ -25,7 +25,7 @@ public class JoueurIA extends Joueur {
 	 */
 	public boolean ajusterCombinaisonCS(String indice, List<Integer> derniereProposition) {
 		int chiffresOK = 0;
-		boolean gagne = false;
+		boolean gagneCombi = false;
 
 		for (int i = 0; i < indice.length(); i++) {
 			int chiffreEnCours = this.combinaisonJoueur.combinaisonCS.get(i);
@@ -58,10 +58,11 @@ public class JoueurIA extends Joueur {
 		}
 
 		if (chiffresOK == derniereProposition.size()) {
-			gagne = true;
+			gagneCombi = true;
+			this.gagne = true;
 		}
 
-		return gagne;
+		return gagneCombi;
 
 	}
 

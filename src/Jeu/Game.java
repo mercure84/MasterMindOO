@@ -1,6 +1,8 @@
 package Jeu;
 import java.util.List;
 import java.util.Scanner;
+
+import Joueur.Joueur;
 import Joueur.JoueurHumain;
 import Joueur.JoueurIA;
 import Tools.Combinaison;
@@ -45,7 +47,7 @@ public class Game implements Jouable {
 	 * @param iAbug 
 	 * @return
 	 */
-	public boolean endGame(boolean partieFinie, int nbTours, List proposition, boolean IAbug) {
+	public boolean endGame(boolean partieFinie, int nbTours, boolean IAbug, Joueur joueurIA, Joueur joueurH) {
 		
 		if (IAbug) {
 			return true;
@@ -61,7 +63,22 @@ public class Game implements Jouable {
 
 		
 		if (partieFinie) {
-			System.out.println("La combinaison à trouver était bien de " + proposition + " ! Il y a eu " + nbEssais + " essai(s) !");
+			System.out.println("La partie est finie ! Il y a eu " + nbEssais + " essai(s) !");
+			
+			if (joueurIA.gagne && joueurH.gagne) {
+				System.out.println(("Egalité ! Vous avez gagné mais l'IA aussi !"));
+			}
+			else {
+			
+			if (joueurIA.gagne) {
+				System.out.println("L'IA a gagné !");
+			}
+			
+			
+			else if (joueurH.gagne) {
+				System.out.println("VOUS avez gagné");
+				
+			}}
 			
 			return true;
 

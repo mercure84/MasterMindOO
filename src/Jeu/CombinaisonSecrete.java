@@ -36,9 +36,10 @@ public class CombinaisonSecrete extends Game {
 		do {
 			nbEssais++;
 			String propositionJoueur = sc.nextLine();
-			this.partieFinie = joueurIA.comparer(propositionJoueur, joueurIA.combinaisonJoueur.combinaisonCSD);
+			this.partieFinie = joueurIA.comparer(propositionJoueur, joueurIA.combinaisonJoueur.combinaisonCSD, joueurH);
+			
 
-		} while (!this.endGame(this.partieFinie, nbEssais, joueurIA.combinaisonJoueur.combinaisonCSD, false));
+		} while (!this.endGame(this.partieFinie, nbEssais, joueurIA.IAbug, joueurIA, joueurH));
 
 	}
 
@@ -72,7 +73,7 @@ public class CombinaisonSecrete extends Game {
 			String indice = joueurH.joueurIndiqueCS(joueurIA.combinaisonJoueur.combinaisonCS);
 			this.partieFinie = joueurIA.ajusterCombinaisonCS(indice, joueurIA.combinaisonJoueur.combinaisonCS);
 
-		} while (!this.endGame(this.partieFinie, nbEssais, joueurIA.combinaisonJoueur.combinaisonCS, false));
+		} while (!this.endGame(this.partieFinie, nbEssais, joueurIA.IAbug, joueurIA, joueurH));
 
 	}
 
@@ -101,7 +102,7 @@ public void jouerDuel(JoueurHumain joueurH, JoueurIA joueurIA) {
 		nbEssais++;
 		System.out.println("Quelle est votre proposition ?");
 		String propositionJoueur = sc.nextLine();
-		gagneJ = joueurIA.comparer(propositionJoueur, joueurIA.combinaisonJoueur.combinaisonCSD);
+		gagneJ = joueurIA.comparer(propositionJoueur, joueurIA.combinaisonJoueur.combinaisonCSD, joueurH);
 		
 		// joueur IA joue
 		String propositionIA = "";
@@ -128,7 +129,7 @@ public void jouerDuel(JoueurHumain joueurH, JoueurIA joueurIA) {
 		}
 		
 
-	} while (!this.endGame(this.partieFinie, nbEssais, winProposition, false));
+	} while (!this.endGame(this.partieFinie, nbEssais, joueurIA.IAbug, joueurIA, joueurH));
 	
 	
 	

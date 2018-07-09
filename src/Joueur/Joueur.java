@@ -14,7 +14,7 @@ public class Joueur {
 	public boolean gagne = false;
 
 	// méthode de comparaison pour le jeu CS
-	public boolean comparer(String propositionJ, List<Integer> code) {
+	public boolean comparer(String propositionJ, List<Integer> code, Joueur joueur) {
 		String retourVerification = "";
 		boolean gagne = true;
 
@@ -40,6 +40,7 @@ public class Joueur {
 
 		}
 		System.out.println("Proposition :" + propositionJ + " -> réponse : " + retourVerification);
+		joueur.gagne = true;
 		return gagne;
 
 	}

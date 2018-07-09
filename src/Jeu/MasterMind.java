@@ -48,12 +48,12 @@ public class MasterMind extends Game {
 			System.out.println(" --> Pions bien placés : " + retour[0] + ", Pions mal placés : " + retour[1]);
 
 			if (joueurH.gagne) {
-				System.out.println("Vous avez gagné !");
+				
 				this.partieFinie = true;
 			}
 
 
-		} while (!this.endGame(partieFinie, nbEssais, joueurIA.combinaisonJoueur.combinaisonMM, false));
+		} while (!this.endGame(this.partieFinie, nbEssais, joueurIA.IAbug, joueurIA, joueurH));
 
 	}
 
@@ -73,7 +73,7 @@ public class MasterMind extends Game {
 			int[] indice = joueurH.joueurIndiqueMM();
 			joueurIA.nettoyerCombinaisonsMM(indice);
 			if (joueurIA.gagne) {
-				System.out.println("l'IA a gagné !");
+				
 				this.partieFinie = true;
 				
 			}
@@ -82,7 +82,7 @@ public class MasterMind extends Game {
 				this.partieFinie = true;
 			}
 
-		} while (!this.endGame(partieFinie, nbEssais, joueurIA.combinaisonJoueur.combinaisonMMD, joueurIA.IAbug));
+		} while (!this.endGame(this.partieFinie, nbEssais, joueurIA.IAbug, joueurIA, joueurH));
 
 	}
 	
@@ -150,7 +150,7 @@ public class MasterMind extends Game {
 			}
 			
 
-		} while (!this.endGame(this.partieFinie, nbEssais, null, joueurIA.IAbug));
+		} while (!this.endGame(this.partieFinie, nbEssais, joueurIA.IAbug, joueurIA, joueurH));
 		
 		
 		
