@@ -47,7 +47,7 @@ public class Game implements Jouable {
 	 * @param iAbug 
 	 * @return
 	 */
-	public boolean endGame(int nbTours, boolean IAbug, Joueur joueurIA, Joueur joueurH) {
+	public boolean endGame(int nbEssais, boolean IAbug, Joueur joueurIA, Joueur joueurH) {
 		
 		boolean partieFinie = false;
 		
@@ -60,7 +60,7 @@ public class Game implements Jouable {
 		}
 		
 		
-		else if (nbTours > this.nbEssaisMax){
+		else if (nbEssais > this.nbEssaisMax){
 			
 			System.out.println("Perdu ! Il n'y a plus d'essais disponibles");	
 			partieFinie= true;	
@@ -129,6 +129,10 @@ public class Game implements Jouable {
 		// TODO Auto-generated method stub
 		
 	}
-
+	@Override
+	public void startAlgo(JoueurIA joueurH, JoueurIA joueurIA) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

@@ -98,7 +98,7 @@ public class MasterMind extends Game {
 				ModeJeu.DUEL);
 		System.out.println("Les couleurs disponibles sont : " + this.paramJeu.ensembleCouleurs + ", nous jouons sur "
 				+ this.paramJeu.getNbCasesMM() + " cases");
-		partieFinie = false;
+		
 
 		
 		System.out.println("L'IA a déterminé sa combinaison personnelle, à vous de mémoriser la vôtre !");
@@ -142,14 +142,7 @@ public class MasterMind extends Game {
 			int[] indice = joueurH.joueurIndiqueMM();
 			joueurIA.nettoyerCombinaisonsMM(indice);
 
-			
-			if (joueurIA.IAbug) {
-				this.partieFinie = true;
-			}
-			if (joueurH.gagne || joueurIA.gagne) {
-				this.partieFinie = true ;
-			}
-			
+
 
 		} while (!this.endGame(nbEssais, joueurIA.IAbug, joueurIA, joueurH));
 		

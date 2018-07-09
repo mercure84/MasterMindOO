@@ -17,4 +17,6 @@ public interface Jouable {
 	
 	public void jouerDuel(JoueurHumain joueurH, JoueurIA joueurIA);
 	
+	public void startAlgo(JoueurIA ia1, JoueurIA ia2);
+	
 }
