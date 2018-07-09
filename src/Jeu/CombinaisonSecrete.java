@@ -105,7 +105,7 @@ public void jouerDuel(JoueurHumain joueurH, JoueurIA joueurIA) {
 		
 		// joueur IA joue
 		String propositionIA = "";
-		nbEssais++;
+		
 		for (int i = 0; i < joueurIA.combinaisonJoueur.combinaisonCS.size(); i++) {
 
 			propositionIA += joueurIA.combinaisonJoueur.combinaisonCS.get(i) + " ";
