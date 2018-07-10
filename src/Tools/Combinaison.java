@@ -13,6 +13,8 @@ import Jeu.ModeJeu;
  * X chiffres pour le jeu de la combinaison secrètes X boules sur Y couleurs
  * pour le MasterMind
  * 
+ * 3 constructeurs on fonction du jeu et du mode choisi
+ * 
  * 
  * @author julie
  *
@@ -78,8 +80,14 @@ public class Combinaison {
 
 	}
 
-	// génération d'un ensemble de combinaison pour les modes défenseurs / duels
-
+	
+/**
+ * méthode qui génère un objet combinaison en particulier contenant l'ensemble des possibilités pour le mastermind duel
+ * @param typeJeu
+ * @param nbCases
+ * @param ensembleCouleurs
+ * @param modeJeu
+ */
 	public Combinaison(ChoixJeu typeJeu, int nbCases, List<Character> ensembleCouleurs, ModeJeu modeJeu) {
 		List<List> listeCombinaisons = new ArrayList();
 		if (typeJeu == ChoixJeu.MASTERMIND) {

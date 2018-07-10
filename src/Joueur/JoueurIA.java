@@ -11,8 +11,6 @@ public class JoueurIA extends Joueur {
 
 	public JoueurIA() {
 
-		
-
 	}
 
 	/**
@@ -58,7 +56,7 @@ public class JoueurIA extends Joueur {
 		}
 
 		if (chiffresOK == derniereProposition.size()) {
-			
+
 			gagneCombi = true;
 			this.gagne = true;
 		}
@@ -67,21 +65,27 @@ public class JoueurIA extends Joueur {
 
 	}
 
+	/**
+	 * méthode attribuée à un joueur IA pour proposer une combinaison au MM
+	 */
 	public void proposerCombinaisonMM() {
 		// on va prendre alétoirement une combinaison disponible dans l'ensemble restant
 
-			List<Character> proposition = new ArrayList();
-			int index = new Random().nextInt(this.combinaisonJoueur.ensembleCombinaisonMM.size());
-			
-			proposition = this.combinaisonJoueur.ensembleCombinaisonMM.get(index);
-			System.out.println(
-					"L'IA vous propose la combinaison suivante : " + proposition + " [Nb possibilités restantes : "
-							+ this.combinaisonJoueur.ensembleCombinaisonMM.size()+"]");
-			this.combinaisonJoueur.combinaisonMMD = proposition;
-		}
+		List<Character> proposition = new ArrayList();
+		int index = new Random().nextInt(this.combinaisonJoueur.ensembleCombinaisonMM.size());
 
-	
+		proposition = this.combinaisonJoueur.ensembleCombinaisonMM.get(index);
+		System.out.println("L'IA vous propose la combinaison suivante : " + proposition
+				+ " [Nb possibilités restantes : " + this.combinaisonJoueur.ensembleCombinaisonMM.size() + "]");
+		this.combinaisonJoueur.combinaisonMMD = proposition;
+	}
 
+	/**
+	 * méthode IA qui permet de supprimer les mauvaises combinaisons du champs des
+	 * possibles en fonction de l'indice recu
+	 * 
+	 * @param indice
+	 */
 	public void nettoyerCombinaisonsMM(int[] indice) {
 
 		// si l'indice "pions bien placés" est égal à la longueur de la proposition de
@@ -90,7 +94,8 @@ public class JoueurIA extends Joueur {
 		if (indice[0] != this.combinaisonJoueur.combinaisonMMD.size()) {
 
 			// on cherche les combinaisons à éliminer, cad celles qui n'obtiennent pas le
-			// score prévu : on va tester toutes les combinaisons de l'ensemble restant par rapport
+			// score prévu : on va tester toutes les combinaisons de l'ensemble restant par
+			// rapport
 			// à la dernière proposition de l'IA
 			List<List> combinaisonsAEliminer = new ArrayList();
 			for (int i = 0; i < this.combinaisonJoueur.ensembleCombinaisonMM.size(); i++) {
@@ -111,23 +116,24 @@ public class JoueurIA extends Joueur {
 			for (List list : combinaisonsAEliminer) {
 
 				this.combinaisonJoueur.ensembleCombinaisonMM.remove(list);
-				
 
 			}
 			combinaisonsAEliminer.clear();
 
-			//si l'ensemble des combinaisons restantes est vide c'est qu'il y a une erreur dans les indices donnés par l'humain...
+			// si l'ensemble des combinaisons restantes est vide c'est qu'il y a une erreur
+			// dans les indices donnés par l'humain...
 			if (this.combinaisonJoueur.ensembleCombinaisonMM.isEmpty()) {
 
-this.IAbug = true;
-				
+				this.IAbug = true;
+
 			} else {
-			this.gagne = false;}
+				this.gagne = false;
+			}
 
 		} else {
 
 			// l'IA a gagné
-	
+
 			this.gagne = true;
 
 		}

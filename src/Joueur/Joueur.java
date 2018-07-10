@@ -12,7 +12,12 @@ public class Joueur {
 	public boolean gagne = false;
 	public Combinaison combinaisonJoueur;
 
-	// méthode de comparaison pour le jeu CS
+	/**
+	 * méthode de comparaison pour CS
+	 * @param propositionJ
+	 * @param code
+	 * @param joueur
+	 */
 	public void comparer(String propositionJ, List<Integer> code, Joueur joueur) {
 		String retourVerification = "";
 		int chiffreOK = 0;
@@ -51,7 +56,12 @@ public class Joueur {
 
 	}
 
-	// méthode de comparaison pour le mastermind
+	/**
+	 * méthode de comparaison des combinaisons pour MM
+	 * @param propositionJ
+	 * @param propositionCible
+	 * @return
+	 */
 	public int[] comparer(List<Character> propositionJ, List<Character> propositionCible) {
 
 		int bienPlaces = 0;

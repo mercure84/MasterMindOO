@@ -14,6 +14,12 @@ public class JoueurHumain extends Joueur {
 
 	}
 
+	/**
+	 * méthode attribuée à un joueur humain de donner un indice à l'IA pour CS
+	 * 
+	 * @param proposition
+	 * @return
+	 */
 	public String joueurIndiqueCS(List<Integer> proposition) {
 		String indiceJoueur = "";
 		boolean attenteJoueur = true;
@@ -27,17 +33,18 @@ public class JoueurHumain extends Joueur {
 			int verifCombinaison = 0;
 			int chiffresOk = 0;
 			// on vérifie la taille de l'indice...
-			
-			//System.out.println("taille indice = " + indiceJoueur.length() + " taille proposition " + proposition.size());
+
+			// System.out.println("taille indice = " + indiceJoueur.length() + " taille
+			// proposition " + proposition.size());
 			if (indiceJoueur.length() != proposition.size()) {
 				System.out.println(erreur);
 			} else {// on vérifie que l'indice comporte bien des + ou des - ou =
 				for (int i = 0; i < indiceJoueur.length(); i++) {
 					if (indiceJoueur.charAt(i) != '-' && indiceJoueur.charAt(i) != '+'
 							&& indiceJoueur.charAt(i) != '=') {
-// si on est ici c'est que le format de l'indice n'est pas bon...
+						// si on est ici c'est que le format de l'indice n'est pas bon...
 						continue;
-						
+
 					} else {
 						verifIndice++;
 					}
@@ -47,8 +54,7 @@ public class JoueurHumain extends Joueur {
 
 					attenteJoueur = false;
 
-				}
-				else {
+				} else {
 					System.out.println(erreur);
 				}
 
@@ -59,6 +65,11 @@ public class JoueurHumain extends Joueur {
 
 	}
 
+	/**
+	 * méthode qui permet à un joueur humain de donner un indice à l'IA pour MM
+	 * 
+	 * @return
+	 */
 	public int[] joueurIndiqueMM() {
 		Scanner sc = new Scanner(System.in);
 		int[] score = new int[2];
@@ -72,6 +83,6 @@ public class JoueurHumain extends Joueur {
 		score[1] = pionsMalplaces;
 
 		return score;
-		
+
 	}
 }

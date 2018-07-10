@@ -3,8 +3,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * classe qui renvoie différentes méthodes menu pour choisir le jeu ou rejouer
- * méthode main qui constitue le point d'entrée du programme.
+ * Point d'entrée du programme
  * 
  * @author julie
  *

@@ -11,7 +11,10 @@ import Tools.Combinaison;
 public class MasterMind extends Game {
 	int nbCouleurs;
 	int nbCases;
-	
+
+	/**
+	 * constructeur du MasterMind
+	 */
 	public MasterMind() {
 		super();
 		this.typeJeu = ChoixJeu.MASTERMIND;
@@ -20,6 +23,9 @@ public class MasterMind extends Game {
 
 	}
 
+	/**
+	 * méthode pour lancer le mode challenger
+	 */
 	public void jouerChallenger(JoueurHumain joueurH, JoueurIA joueurIA) {
 
 		// l'IA génère une combinaison à trouver par le joueur
@@ -49,15 +55,17 @@ public class MasterMind extends Game {
 			System.out.println(" --> Pions bien placés : " + retour[0] + ", Pions mal placés : " + retour[1]);
 
 			if (joueurH.gagne) {
-				
+
 				this.partieFinie = true;
 			}
-
 
 		} while (!this.endGame(this.nbEssais, joueurIA.IAbug, joueurIA, joueurH));
 
 	}
 
+	/**
+	 * méthode pour lancer le mode défenseur
+	 */
 	public void jouerDefenseur(JoueurHumain joueurH, JoueurIA joueurIA) {
 
 		// l'IA génère l'ensemble des combinaisons possibles
@@ -74,11 +82,11 @@ public class MasterMind extends Game {
 			int[] indice = joueurH.joueurIndiqueMM();
 			joueurIA.nettoyerCombinaisonsMM(indice);
 			if (joueurIA.gagne) {
-				
+
 				this.partieFinie = true;
-				
+
 			}
-			
+
 			if (joueurIA.IAbug) {
 				this.partieFinie = true;
 			}
@@ -86,10 +94,12 @@ public class MasterMind extends Game {
 		} while (!this.endGame(nbEssais, joueurIA.IAbug, joueurIA, joueurH));
 
 	}
-	
-	
+
+	/**
+	 * méthode pour lancer le mode duel
+	 */
 	public void jouerDuel(JoueurHumain joueurH, JoueurIA joueurIA) {
-		
+
 		boolean gagneIA = false;
 		boolean gagneJ = false;
 
@@ -98,9 +108,7 @@ public class MasterMind extends Game {
 				ModeJeu.DUEL);
 		System.out.println("Les couleurs disponibles sont : " + this.paramJeu.ensembleCouleurs + ", nous jouons sur "
 				+ this.paramJeu.getNbCasesMM() + " cases");
-		
 
-		
 		System.out.println("L'IA a déterminé sa combinaison personnelle, à vous de mémoriser la vôtre !");
 		if (modeDev) {
 			System.out.println(
@@ -108,11 +116,10 @@ public class MasterMind extends Game {
 		}
 
 		do {
-			
-			
+
 			nbEssais++;
-			
-			//humain joue 
+
+			// humain joue
 			System.out.println("Quelle est votre proposition ?");
 			String propositionJoueur = sc.nextLine();
 			propositionJoueur = propositionJoueur.toUpperCase();
@@ -126,32 +133,22 @@ public class MasterMind extends Game {
 
 			retour = joueurH.comparer(propositionJ, joueurIA.combinaisonJoueur.combinaisonMM);
 			System.out.println(" --> Pions bien placés : " + retour[0] + ", Pions mal placés : " + retour[1]);
-			
-
 
 			// joueur IA joue
-			
+
 			String propositionIA = "";
 			for (int i = 0; i < joueurIA.combinaisonJoueur.combinaisonCS.size(); i++) {
 
 				propositionIA += joueurIA.combinaisonJoueur.combinaisonCS.get(i) + " ";
 
 			}
-						
+
 			joueurIA.proposerCombinaisonMM();
 			int[] indice = joueurH.joueurIndiqueMM();
 			joueurIA.nettoyerCombinaisonsMM(indice);
 
-
-
 		} while (!this.endGame(nbEssais, joueurIA.IAbug, joueurIA, joueurH));
-		
-		
-		
-		
-		
 
 	}
 
-	
 }

@@ -45,7 +45,7 @@ public class Game implements Jouable {
 	 * @param nbTours
 	 * @param proposition
 	 * @param iAbug 
-	 * @return
+	 * @return un boolean qui nous dit si la partie est finie ou non
 	 */
 	public boolean endGame(int nbEssais, boolean IAbug, Joueur joueurIA, Joueur joueurH) {
 		
@@ -99,20 +99,6 @@ public class Game implements Jouable {
 	
 	@Override
 	public void jouerChallenger(JoueurHumain joueurH, JoueurIA joueurIA) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void jouerDefenseur() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void joueurIndique() {
 		// TODO Auto-generated method stub
 		
 	}

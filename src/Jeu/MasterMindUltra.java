@@ -21,6 +21,9 @@ public class MasterMindUltra extends MasterMind {
 
 	}
 
+	/**
+	 * algorithme qui permet de faire jouer l'ordinateur tout seul sur un nombres de parties données (mastermind)
+	 */
 	public void startAlgo(JoueurIA IA, JoueurIA IA2) {
 		System.out.println("Les couleurs disponibles sont : " + this.paramJeu.ensembleCouleurs + ", nous jouons sur "
 				+ this.paramJeu.getNbCasesMM() + " cases");
