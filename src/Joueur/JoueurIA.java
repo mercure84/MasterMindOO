@@ -101,7 +101,7 @@ public class JoueurIA extends Joueur {
 				int[] scoreA = this.comparer(this.combinaisonJoueur.combinaisonMMD, combiATester);
 
 				if (!((scoreA[0] == indice[0]) && (scoreA[1] == indice[1]))) {
-					// si la combinaison à tester ne satisfait pas à l'indice, on l'ajotue dans la
+					// si la combinaison à tester ne satisfait pas à l'indice, on l'ajoute dans la
 					// liste des indésirables.
 					combinaisonsAEliminer.add(combiATester);
 

@@ -73,8 +73,10 @@ public class Combinaison {
 				int k = new Random().nextInt(ensembleCouleurs.size());
 				char couleur = ensembleCouleurs.get(k);
 				combinaisonInventee.add(couleur);
+				
 
 			}
+
 			this.combinaisonMM = combinaisonInventee;
 		}
 

@@ -64,6 +64,7 @@ public abstract class Joueur {
 
 		int bienPlaces = 0;
 		int nbMalPlaces = 0;
+		
 		List<Character> codeTest = new ArrayList<>(propositionCible);
 		int[] resultat = new int[2];
 
@@ -77,7 +78,6 @@ public abstract class Joueur {
 		else {
 			List<Character> malPlaces = new ArrayList();
 			List<Character> proposition = new ArrayList(propositionJ);
-			malPlaces.add('!');
 
 			for (int i = 0; i < proposition.size(); i++) {
 
@@ -106,7 +106,7 @@ public abstract class Joueur {
 			// je traite mes pions mal placés : après remplacements des pions biens placés
 			// par Z
 			// dans la combinaison, existent-ils toujours ?
-
+			
 			for (int j = 0; j < malPlaces.size(); j++) {
 				char pionMP = malPlaces.get(j);
 				if (codeTest.contains(pionMP)) {
@@ -114,6 +114,8 @@ public abstract class Joueur {
 					for (int m = 0; m < codeTest.size(); m++) {
 						if (pionMP == codeTest.get(m)) {
 							codeTest.set(m, 'Z');
+							//dès la première rencontrer on break sinon on risque de mettre un Z sur plusieurs pions mal placés 
+							break;
 						}
 					}
 				}

@@ -120,7 +120,7 @@ public class MasterMind extends Game {
 			nbEssais++;
 
 			// humain joue
-			System.out.println("Quelle est votre proposition ?");
+			System.out.println("Quelle combinaison proposez vous à l'IA ?");
 			String propositionJoueur = sc.nextLine();
 			propositionJoueur = propositionJoueur.toUpperCase();
 			int[] retour = new int[2];
