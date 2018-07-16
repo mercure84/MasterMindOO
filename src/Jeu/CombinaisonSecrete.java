@@ -3,12 +3,12 @@ package Jeu;
 import java.util.ArrayList;
 import java.util.List;
 
+import Joueur.Combinaison;
 import Joueur.JoueurHumain;
 import Joueur.JoueurIA;
-import Tools.Combinaison;
 
 
-public class CombinaisonSecrete extends Game {
+class CombinaisonSecrete extends Game {
 
 	
 	int nbCases;

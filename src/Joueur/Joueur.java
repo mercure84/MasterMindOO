@@ -3,11 +3,9 @@ package Joueur;
 import java.util.ArrayList;
 import java.util.List;
 
-import Tools.Combinaison;
-
 // classe qui permet de créer un joueur humain ou IA et de lui associer sa combinaison
 
-public class Joueur {
+public abstract class Joueur {
 	
 	public boolean gagne = false;
 	public Combinaison combinaisonJoueur;

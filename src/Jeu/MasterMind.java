@@ -3,14 +3,14 @@ package Jeu;
 import java.util.ArrayList;
 import java.util.List;
 
+import Joueur.Combinaison;
 import Joueur.Joueur;
 import Joueur.JoueurIA;
 import Joueur.JoueurHumain;
-import Tools.Combinaison;
 
 public class MasterMind extends Game {
-	int nbCouleurs;
-	int nbCases;
+	protected int nbCouleurs;
+	protected int nbCases;
 
 	/**
 	 * constructeur du MasterMind

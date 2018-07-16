@@ -2,11 +2,13 @@ package Jeu;
 import java.util.List;
 import java.util.Scanner;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import Joueur.Combinaison;
 import Joueur.Joueur;
 import Joueur.JoueurHumain;
 import Joueur.JoueurIA;
-import Tools.Combinaison;
-import Tools.Parametres;
 
 /**
  *classe mère de nos différents jeux 
@@ -14,19 +16,19 @@ import Tools.Parametres;
  * @author julie
  *
  */
-public class Game implements Jouable {
-
-	ChoixJeu typeJeu;
-	boolean partieFinie = false;
-	Parametres paramJeu ;
-	int nbEssaisMax = 10;
-	int nbEssais = 0;
-	boolean modeDev;
-	Scanner sc = new Scanner(System.in);
+public abstract class Game implements Jouable {
+	static final Logger logger = LogManager.getLogger();
+	protected ChoixJeu typeJeu;
+	protected boolean partieFinie = false;
+	protected Parametres paramJeu ;
+	protected int nbEssaisMax = 10;
+	protected int nbEssais = 0;
+	protected boolean modeDev;
+	protected Scanner sc = new Scanner(System.in);
 	
 
 	//constructeur par défaut
-	public Game() {
+	protected Game() {
 		// chargement des paramètres du fichier config.properties
 		
 		
@@ -47,14 +49,14 @@ public class Game implements Jouable {
 	 * @param iAbug 
 	 * @return un boolean qui nous dit si la partie est finie ou non
 	 */
-	public boolean endGame(int nbEssais, boolean IAbug, Joueur joueurIA, Joueur joueurH) {
+	protected boolean endGame(int nbEssais, boolean IAbug, Joueur joueurIA, Joueur joueurH) {
 		
 		boolean partieFinie = false;
 		
 		if (IAbug) {
 			
 			System.out.println("Il y a malheureusement un problème quelque part... Etes vous certains de ne pas avoir donné de mauvais indices à l'IA ?");
-			
+			logger.error("Une erreur dans le script du solver IA a été manifestement détectée");
 			partieFinie = true;
 			
 		}

@@ -3,10 +3,8 @@ package Joueur;
 import java.util.List;
 import java.util.Scanner;
 
-import Tools.Combinaison;
-
 public class JoueurHumain extends Joueur {
-	Scanner sc = new Scanner(System.in);
+	protected Scanner sc = new Scanner(System.in);
 
 	public JoueurHumain() {
 

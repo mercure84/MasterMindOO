@@ -3,14 +3,14 @@ package Jeu;
 import java.util.ArrayList;
 import java.util.List;
 
+import Joueur.Combinaison;
 import Joueur.JoueurHumain;
 import Joueur.JoueurIA;
-import Tools.Combinaison;
 
 public class MasterMindUltra extends MasterMind {
 
-	int nbParties = 1;
-	int nbEssais = 0;
+	protected int nbParties = 1;
+	protected int nbEssais = 0;
 
 	public MasterMindUltra() {
 		super();
@@ -70,6 +70,7 @@ public class MasterMindUltra extends MasterMind {
 
 		System.out.println("Nous avons joué " + this.nbParties + " parties qui ont été résolues en " + nbEssaisTot
 				+ " tours, soit " + tourMoyen + " essais par partie !");
+		sc.nextLine();
 
 	}
 

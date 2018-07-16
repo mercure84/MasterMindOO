@@ -1,4 +1,4 @@
-package Tools;
+package Jeu;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -17,12 +17,12 @@ import org.apache.logging.log4j.Logger;
  *
  */
 public class Parametres {
-	static final Logger logger = LogManager.getLogger();
-	boolean modeDev = false;
-	int nbEssais = 5;
-	int nbCasesCS = 5;
-	int nbCouleursMM = 6;
-	int nbCasesMM = 4;
+	protected static final Logger logger = LogManager.getLogger();
+	protected boolean modeDev = false;
+	protected int nbEssais = 5;
+	protected int nbCasesCS = 5;
+	protected int nbCouleursMM = 6;
+	protected int nbCasesMM = 4;
 	public List<Character> ensembleCouleurs;
 	
 	

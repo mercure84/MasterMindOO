@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import Tools.Combinaison;
-
 public class JoueurIA extends Joueur {
 	public boolean IAbug;
 

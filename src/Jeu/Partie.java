@@ -1,10 +1,10 @@
 package Jeu;
 
 import java.util.Scanner;
+
+import Joueur.Combinaison;
 import Joueur.JoueurHumain;
 import Joueur.JoueurIA;
-import Tools.Combinaison;
-import Tools.Parametres;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,15 +21,15 @@ import org.apache.logging.log4j.Logger;
 public class Partie {
 
 	static final Logger logger = LogManager.getLogger();
-	ChoixJeu typeJeu;
-	ModeJeu modeJeu; // utilisation d'une ENUM
-	JoueurHumain humain = null;
-	JoueurIA IA = null;
-	JoueurIA IA2 = null;
-	boolean jeuFini = false;
-	Scanner sc = new Scanner(System.in);
-	Game nouveauJeu;
-	int nbParties = 1;
+	protected ChoixJeu typeJeu;
+	protected ModeJeu modeJeu; // utilisation d'une ENUM
+	protected JoueurHumain humain = null;
+	protected JoueurIA IA = null;
+	protected JoueurIA IA2 = null;
+	protected boolean jeuFini = false;
+	protected Scanner sc = new Scanner(System.in);
+	protected Game nouveauJeu;
+	protected int nbParties = 1;
 
 	/**
 	 * initiatilisation du jeu : le constructeur affiche un menu qui permet de
