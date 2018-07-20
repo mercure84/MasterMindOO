@@ -15,8 +15,8 @@ public class MasterMind extends Game {
 	/**
 	 * constructeur du MasterMind
 	 */
-	public MasterMind() {
-		super();
+	public MasterMind(Parametres param) {
+		super(param);
 		this.typeJeu = ChoixJeu.MASTERMIND;
 		this.nbCouleurs = paramJeu.getNbCouleursMM();
 		this.nbCases = paramJeu.getNbCasesMM();

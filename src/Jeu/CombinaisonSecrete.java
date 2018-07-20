@@ -12,8 +12,8 @@ class CombinaisonSecrete extends Game {
 
 	
 	int nbCases;
-	public CombinaisonSecrete() {
-		super();
+	public CombinaisonSecrete(Parametres param) {
+		super(param);
 		this.typeJeu = ChoixJeu.COMBINAISON_SECRETE;
 		this.nbCases = paramJeu.getNbCasesCS();
 

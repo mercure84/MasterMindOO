@@ -1,25 +1,51 @@
-2018-07-16 20:49:18.108 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
-2018-07-16 20:51:43.689 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
-2018-07-16 20:52:17.644 [main] ERROR Jeu.Game - Une erreur dans le script du solver IA a été manifestement détectée
-2018-07-16 20:52:17.644 [main] INFO  Jeu.Partie - Lancement de MASTERMIND en mode DEFENSEUR
-2018-07-16 20:55:06.314 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
-2018-07-16 20:55:33.069 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
-2018-07-16 20:55:48.867 [main] INFO  Jeu.Partie - Lancement de MASTERMIND en mode DEFENSEUR
-2018-07-16 20:55:50.774 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
-2018-07-16 20:56:24.718 [main] INFO  Jeu.Partie - Lancement de MASTERMIND en mode DEFENSEUR
-2018-07-16 20:56:34.101 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
-2018-07-16 20:56:52.207 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
-2018-07-16 20:57:23.765 [main] INFO  Jeu.Partie - Lancement de MASTERMIND en mode DEFENSEUR
-2018-07-16 20:57:24.926 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
-2018-07-16 20:58:07.935 [main] ERROR Jeu.Game - Une erreur dans le script du solver IA a été manifestement détectée
-2018-07-16 20:58:07.935 [main] INFO  Jeu.Partie - Lancement de MASTERMIND en mode DEFENSEUR
-2018-07-16 21:01:23.899 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
-2018-07-16 21:10:32.641 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
-2018-07-16 21:14:41.029 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
-2018-07-16 21:14:57.165 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
-2018-07-16 21:19:53.356 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
-2018-07-16 21:20:39.598 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
-2018-07-16 21:22:47.383 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
-2018-07-16 21:24:58.007 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
-2018-07-16 21:25:02.418 [main] INFO  Jeu.Partie - Lancement de MASTERMIND en mode CHALLENGER
-2018-07-16 21:25:14.677 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 19:37:29.224 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 19:37:47.726 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 19:38:09.995 [main] INFO  Jeu.Partie - Lancement de MASTERMIND en mode DEFENSEUR
+2018-07-20 19:45:33.657 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 19:46:18.610 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 19:46:55.346 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 19:47:00.903 [main] INFO  Jeu.Partie - Lancement de MASTERMINDULTRA en mode null
+2018-07-20 19:48:41.437 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 19:49:00.814 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 19:49:04.212 [main] INFO  Jeu.Partie - Lancement de MASTERMINDULTRA en mode null
+2018-07-20 19:49:18.217 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 19:49:19.900 [main] INFO  Jeu.Partie - Lancement de MASTERMINDULTRA en mode null
+2018-07-20 19:49:23.364 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 19:50:22.834 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 19:50:24.040 [main] INFO  Jeu.Partie - Lancement de MASTERMINDULTRA en mode null
+2018-07-20 19:51:23.386 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 19:51:29.244 [main] INFO  Jeu.Partie - Lancement de MASTERMINDULTRA en mode null
+2018-07-20 19:51:53.450 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 19:52:00.539 [main] INFO  Jeu.Partie - Lancement de MASTERMINDULTRA en mode null
+2018-07-20 19:53:09.752 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 19:53:18.212 [main] INFO  Jeu.Partie - Lancement de MASTERMINDULTRA en mode null
+2018-07-20 20:02:07.732 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 20:03:05.801 [main] INFO  Jeu.Partie - Lancement de COMBINAISON_SECRETE en mode CHALLENGER
+2018-07-20 20:03:25.002 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 20:04:56.856 [main] INFO  Jeu.Partie - Lancement de COMBINAISON_SECRETE en mode DUEL
+2018-07-20 20:05:17.334 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 20:05:41.976 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 20:06:33.289 [main] INFO  Jeu.Partie - Lancement de MASTERMIND en mode CHALLENGER
+2018-07-20 20:07:11.242 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 20:08:19.209 [main] INFO  Jeu.Partie - Lancement de MASTERMIND en mode DEFENSEUR
+2018-07-20 20:08:48.122 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 20:09:30.494 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 22:10:00.547 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 22:11:32.323 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 22:17:40.427 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 22:18:06.432 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 22:19:24.762 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 22:19:54.955 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 22:20:37.734 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 22:20:52.980 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 22:21:38.068 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 22:21:49.997 [main] INFO  Jeu.Partie - Lancement de MASTERMIND en mode CHALLENGER
+2018-07-20 22:22:18.090 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 22:22:30.090 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 22:23:47.400 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 22:24:30.869 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 22:24:58.084 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 22:25:25.139 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 22:25:40.324 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 22:28:28.509 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties
+2018-07-20 22:28:36.233 [main] INFO  Jeu.Parametres - les paramètres ont été chargés depuis config.properties

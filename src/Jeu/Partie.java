@@ -30,16 +30,20 @@ public class Partie {
 	protected Scanner sc = new Scanner(System.in);
 	protected Game nouveauJeu;
 	protected int nbParties = 1;
+	protected Parametres parametres;
 
 	/**
 	 * initiatilisation du jeu : le constructeur affiche un menu qui permet de
 	 * demander à l'utilisateur quel est le jeu auquel il souhaite jouer (typeJeu)
 	 * puis quel mode il souhaite lancer (Challenger, Défenseur, Duel ==> modeJeu)
+	 * 
+	 * @param param
+	 * @param modeDev
 	 */
-	public Partie() {
+	public Partie(Parametres param) {
 
 		// 1er menu qui demande le type de Jeu souhaité
-
+		this.parametres = param;
 		System.out.println("Bienvenu(e) dans les jeux de Julien !");
 		System.out.println("A quoi souhaitez-vous jouer aujourd'hui ? voici les choix disponibles :");
 		System.out.println("1 - Combinaison secrète");
@@ -128,13 +132,13 @@ public class Partie {
 			switch (this.typeJeu) {
 
 			case COMBINAISON_SECRETE:
-				this.nouveauJeu = new CombinaisonSecrete();
+				this.nouveauJeu = new CombinaisonSecrete(parametres);
 				break;
 			case MASTERMIND:
-				this.nouveauJeu = new MasterMind();
+				this.nouveauJeu = new MasterMind(parametres);
 				break;
 			case MASTERMINDULTRA:
-				this.nouveauJeu = new MasterMindUltra();
+				this.nouveauJeu = new MasterMindUltra(parametres);
 				break;
 			default:
 				break;

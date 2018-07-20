@@ -28,11 +28,10 @@ public abstract class Game implements Jouable {
 	
 
 	//constructeur par défaut
-	protected Game() {
+	protected Game(Parametres parametres) {
 		// chargement des paramètres du fichier config.properties
 		
-		
-		this.paramJeu = new Parametres();
+		this.paramJeu = parametres;
 		this.nbEssaisMax = paramJeu.getNbEssais();
 		this.modeDev = paramJeu.isModeDev();
 

@@ -12,8 +12,8 @@ public class MasterMindUltra extends MasterMind {
 	protected int nbParties = 1;
 	protected int nbEssais = 0;
 
-	public MasterMindUltra() {
-		super();
+	public MasterMindUltra(Parametres param) {
+		super(param);
 		this.typeJeu = ChoixJeu.MASTERMINDULTRA;
 		System.out.println("Combien de parties souhaitez vous lancer ?");
 		this.nbParties = sc.nextInt();

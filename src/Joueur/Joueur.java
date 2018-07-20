@@ -44,7 +44,7 @@ public abstract class Joueur {
 
 		}
 		
-		// si le nom bre de chiffreOK est égal à la taille de la combinaison, cela signifie que toute la combinaison est juste !
+		// si le nombre de chiffreOK est égal à la taille de la combinaison, cela signifie que toute la combinaison est juste !
 		if (chiffreOK == code.size()) {
 			joueur.gagne = true;
 		}
