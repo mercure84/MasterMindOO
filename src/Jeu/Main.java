@@ -16,7 +16,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		// test du mode développeur au lancement du programme
+		
 		// instanciation des paramètres
 		Parametres param = new Parametres();
 // si l'argument lancé dans la ligne de commande est dev ==> on active le mode dev, sinon c'est le fichier config.properties qui le déterminera 
